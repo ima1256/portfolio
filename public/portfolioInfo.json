@@ -1,0 +1,136 @@
+{
+    "calendlyLink": "https://calendly.com/imanolcondeimanol/20min",
+    "socials": {
+      "github": {
+        "url": "https://github.com/ima1256"
+      },
+      "linkedin": {
+        "url": "https://www.linkedin.com/in/imanolcondegonzalez"
+      },
+      "facebook": {
+        "url": "https://www.facebook.com/imanol.conde.37"
+      }
+    },
+    "primeVideo": {
+        "url": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+    },
+    "myJourney": {
+        "events": [
+            {        
+                "date": "",
+                "name": "",
+                "description": ""
+            }
+        ]
+
+    },
+    "projects": [
+      {
+        "id": 1,
+        "name": "project1",
+        "description": "Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging across all continents except Antarctica",
+        "thumbnail": "https://i.imgur.com/389fePD.jpg",
+        "video": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
+        "demo": "https://nextjs.org/"
+      },
+      {
+        "id": 2,
+        "name": "project2",
+        "description": "Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging across all continents except Antarctica",
+        "thumbnail": "https://i.imgur.com/389fePD.jpg",
+        "video": "https://www.youtube.com/embed/gwF9hKUCPCo?si=g4iZDphHLmHHDCfE",
+        "demo": "https://play.tailwindcss.com/"
+      },
+      {
+        "id": 3,
+        "name": "project3",
+        "description": "Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging across all continents except Antarctica",
+        "thumbnail": "https://i.imgur.com/389fePD.jpg",
+        "video": "https://www.youtube.com/embed/gwF9hKUCPCo?si=g4iZDphHLmHHDCfE",
+        "demo": "https://reactshowcase1234.netlify.app"
+      }
+    ],    
+    "contactInfo": {
+        "name":  "Imanol Conde González",
+        "email": "imanolcondeimanol@gmail.com",
+        "phone": {
+            "ext": "34",
+            "value": "627188184"
+        },
+        "location": "Hondarribia, Guipuzkoa, Basque Country",
+        "photo": {
+            "full": "fullPhotoUrl.png",
+            "thumbnail": "thumbnailPhotoUrl"
+        },
+        "bornDate": "",
+        "selfDescription": ""
+    },
+    "liveStreaming": {
+        "stats": {
+            "totalHours": ""
+        }
+    },
+    "skills": {
+        "main": ["react", "tailwind", "mongoDB", "saas", "nodejs", "linux"],
+        "all": {
+            "react": {
+              "logoUrl": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg",
+              "level": "5"
+            },
+            "tailwind": {
+              "logoUrl": "",
+              "level": "5"
+            },
+            "mongodb": {
+              "logoUrl": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg",
+              "level": "5"
+            },
+            "saas": {
+              "logoUrl": "",
+              "level": "5"
+            },
+            "nodejs": {
+              "logoUrl": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg",
+              "level": "5"
+            },
+            "linux": {
+              "logoUrl": "",
+              "level": "5"
+            },
+            "backend": {
+                "logoUrl": "https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/svgs/solid/database.svg"
+            }
+          }          
+    } ,
+    "education": {
+        "institutions": [
+            {
+                "name": "Upv/Ehu",
+                "institutionLogoUrl": "",
+                "degree": "Computer Science",
+                "degreeLogoUrl": "",
+                "skillsAquired": ["python", "SQL"],
+                "description": {
+                    "short": "",
+                    "long": ""
+                },
+                "date": {
+                    "from": "",
+                    "to": ""
+                }
+            }
+
+        ]
+    },
+    "experience": {
+        "companies": [
+            {
+                "name": "Geminys",
+                "title": "Junior Software Engineer",
+                "description": "",
+                "skillsAquired": ["python", "SQL"]
+            }
+        ]
+    }
+  }
+  

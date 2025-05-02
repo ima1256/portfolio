@@ -1,0 +1,8 @@
+
+
+const VideoControls = () => {
+    return (
+        <>
+        </>
+    )
+}

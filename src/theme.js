@@ -8,6 +8,9 @@ const theme = createTheme({
     secondary: {
       main: "#00E5FF",
     },
+    tertiary: {
+      main: "#FF9800", // Vivid orange
+    }
   },
   typography: {
     fontFamily: "Comic Neue, Poppins, Roboto, sans-serif",

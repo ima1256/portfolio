@@ -48,7 +48,7 @@ const events = [
   },
 ];
 
-const Timeline = forwardRef((props, ref) => {
+const Timeline = forwardRef(({sx}, ref) => {
   const { ref: inViewRef, inView } = useInView({
     triggerOnce: true, // Only trigger once
     threshold: 0.2, // 20% of element visible triggers animation
@@ -65,6 +65,9 @@ const Timeline = forwardRef((props, ref) => {
   return (
     <Box
       ref={ref}
+      sx={[{
+       
+      }, sx]}
       // sx={{
       //   transform: inView ? "translateY(0)" : "translateY(100%)",
       //   opacity: inView ? 1 : 0,
@@ -72,7 +75,7 @@ const Timeline = forwardRef((props, ref) => {
       // }}
       className="flex items-center justify-center py-10"
     >
-      <Stack direction="column" spacing={5} className="w-full md:w-[80%]">
+      <Stack direction="column" spacing={5}>
         <Typography
           variant="h4"
           sx={{

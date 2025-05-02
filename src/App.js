@@ -14,12 +14,15 @@ import theme from "./theme";
 
 import { routes } from "./constants";
 
+import DataLoader from './components/DataLoader';
+
 import Portfolio from "./components/Portfolio/Portfolio";
 
 function App() {
   return (
     <ThemeProvider theme={theme}>
       <Router>
+        <DataLoader />
         <div className="App">
           <Routes>
             <Route path="/" element={<Portfolio />} />

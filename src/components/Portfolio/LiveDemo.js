@@ -1,7 +1,7 @@
 import { Box, CircularProgress } from "@mui/material";
 import { forwardRef, useState } from "react";
 
-const LiveDemo = forwardRef(({ project }, ref) => {
+const LiveDemo = forwardRef(({ parentSX, project }, ref) => {
   const [isLoaded, setIsLoaded] = useState(false);
 
   // Handle iframe load event
@@ -10,9 +10,10 @@ const LiveDemo = forwardRef(({ project }, ref) => {
   };
 
   return (
-    <div
-      ref={ref}
-      className="h-[100vh] flex items-center justify-center transition-opacity duration-500 p-[40px]"
+    <Box
+    ref={ref}
+      sx={parentSX}
+      className="flex items-center justify-center transition-opacity duration-500"
       style={{ opacity: isLoaded ? 1 : 0 }} // Smooth fade-in effect
     >
       {/* Loader animation when the iframe is loading */}
@@ -30,22 +31,26 @@ const LiveDemo = forwardRef(({ project }, ref) => {
           <CircularProgress />
         </Box>
       )}
-       <Box sx={{ height: "100%", width: "100%" }}>
+  
         {/* iframe with onLoad event to trigger loader removal */}
         <iframe
-          src={project.url} // ✅ Real live demo hosted by Vercel
+          
+          src={project.demo} // ✅ Real live demo hosted by Vercel
           style={{
-            width: "100%",
-            height: "100%",
+            width: "70%",
+            height: "auto",
             border: "none",
             opacity: isLoaded ? 1 : 0, // Fade-in effect for iframe
             transition: "opacity 1s", // Smooth transition for opacity
+
+            transformOrigin: "top left", // Keeps the content scaling from the top-left corner
+            aspectRatio: "16/9",
           }}
           title="Live Demo"
           onLoad={handleIframeLoad} // Trigger the load event
         />
       </Box>
-    </div>
+
   );
 });
 

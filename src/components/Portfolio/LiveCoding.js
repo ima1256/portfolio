@@ -10,7 +10,7 @@ const LiveCoding = forwardRef((props, ref) => {
   };
 
   return (
-    <div
+    <Box
       ref={ref}
       style={{
         backgroundColor: "#F9A8D4", // Light pink background
@@ -137,7 +137,7 @@ const LiveCoding = forwardRef((props, ref) => {
           and challenges!
         </Typography>
       </Container>
-    </div>
+    </Box>
   );
 });
 
