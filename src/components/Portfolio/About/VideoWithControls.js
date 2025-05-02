@@ -89,8 +89,6 @@ const VideoWithControls = ({
           loop
         />
 
-        
-
         <VideoProgressLine show={showControls && isHovered} videoRef={videoRef}/>
 
         <div
