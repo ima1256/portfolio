@@ -4,7 +4,15 @@ import CustomVideo from './CustomVideo';
 import { Box, Stack } from '@mui/material';
 import MediaWithLoadEvent from './MediaWithLoadEvent';
 import { eventBus } from '../../eventBus';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
+import SliderLine from './SliderLine';
+import HeaderBrand from '../Portfolio/Header/HeaderBrand';
+import { motion } from 'framer-motion';
+import AxisDemo from './AxisDemo';
+import { TestAnimation } from '../Portfolio/extra/AnimatedSection';
+import AnimationsPlayground from './AnimationsPlayground';
+import About from '../Portfolio/About/About';
+import { Animation } from '../Portfolio/extra/AnimatedSection';
 
 const Test = () => {
   const src =
@@ -12,13 +20,13 @@ const Test = () => {
 
   const [loading, setLoading] = useState(true);
 
+  const videoRef = useRef(null);
+
   useEffect(() => {
     const handler = (data) => {
       console.log('Video loaded:', data);
 
-      // setTimeout(() => {
-      //   setLoading(false);
-      // }, 2000);
+      setLoading(false);
     };
 
     eventBus.on('mediaLoaded', handler);
@@ -37,28 +45,14 @@ const Test = () => {
   // }
 
   return (
-    <Stack className="h-full justify-center items-center relative">
-      {loading && <Loading size={18} />}
-      <MediaWithLoadEvent id="myvideoid">
-        <video
-          style={{
-            width: '100%',
-            height: '100%',
-            objectFit: 'cover',
-            opacity: loading ? 0 : 1,
-            // display: loading ? 'none' : 'block',
-            transition: 'opacity 0.5s ease-in-out',
-          }}
-          preload="auto"
-          src={src}
-          // poster={thumbnail}
-          // muted={isMuted}
-          controls={true}
-          loop
-        />
-      </MediaWithLoadEvent>
-
-      {/* <CustomVideo /> */}
+    <Stack className="h-full justify-center items-center">
+      {/* <AnimationsPlayground>
+        <HeaderBrand />
+      </AnimationsPlayground> */}
+      <Animation id="header-logo-animation" name="Rotate X" duration={1}>
+        <HeaderBrand />
+      </Animation>
+      <About />
     </Stack>
   );
 };

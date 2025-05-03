@@ -13,6 +13,8 @@ import TextSide from './About/TextSide';
 import { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { AnimatedSection, AnimatedMain } from './extra/AnimatedSection';
+import Loading from '../Test/Loading';
+import { eventBus } from '../../eventBus';
 
 const Portfolio = () => {
   const aboutRef = useRef(null);
@@ -33,6 +35,21 @@ const Portfolio = () => {
     // { name: "Contact" },
     // { name: "Footer" },
   ];
+
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const handler = (data) => {
+      //console.log('Data loaded:', data);
+      setLoading(false);
+    };
+
+    eventBus.on('mediaLoaded', handler);
+
+    return () => {
+      eventBus.off('mediaLoaded', handler); // Clean up
+    };
+  }, []);
 
   const handleTabChange = (sectionName) => {
     if (sectionName === 'About') {
@@ -61,9 +78,15 @@ const Portfolio = () => {
 
   return (
     <Stack className="gap-[30vh]">
-      {/* {!loading ? JSON.stringify(data) : null} */}
-      {/* <Test /> */}
-      <Stack direction="column" className="h-screen overflow-hidden">
+      {/* {loading && <Loading size={18} />} */}
+      <Stack
+        direction="column"
+        sx={{
+          opacity: loading ? 0 : 1,
+          transition: 'opacity 0.5s ease-in-out',
+        }}
+        className="h-screen overflow-hidden"
+      >
         <Header
           className="h-[64px]"
           sections={sections}
@@ -76,12 +99,12 @@ const Portfolio = () => {
           <div className="h-full bg-green-500"></div>
         </AnimatedMain> */}
 
-        <AnimatedMain className="flex-grow">
-          <About
-            className="h-full items-center justify-center"
-            ref={aboutRef}
-          />
-        </AnimatedMain>
+        {/* <AnimatedMain className="flex-grow"> */}
+        <About
+          className="h-full items-center justify-center flex-grow"
+          ref={aboutRef}
+        />
+        {/* </AnimatedMain> */}
       </Stack>
 
       <AnimatedSection>
@@ -89,13 +112,13 @@ const Portfolio = () => {
       </AnimatedSection>
 
       {/* <Timeline sx={{ minHeight: defaultSectionHeight }} /> */}
-      {/* <AnimatedSection>
+      <AnimatedSection>
         <Projects
           sx={{ minHeight: defaultSectionHeight }}
           onProjectChange={handleProjectChange}
           ref={projectsRef}
         />
-      </AnimatedSection> */}
+      </AnimatedSection>
       {/* {project ? (
         <LiveDemo
           parentSX={{

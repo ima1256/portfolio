@@ -1,17 +1,18 @@
-import { Button, Stack, IconButton } from "@mui/material";
-import { useState } from "react";
-import React from "react";
-import { Box } from "@mui/material";
-import BookCallButton from "./BookCallButton";
-import HeaderBrand from "./HeaderBrand";
-import NavTabs from "./NavTabs";
-import MobileDrawer from "./MobileDrawer";
-import BookCallDialog from "./BookCallDialog";
-import MenuIcon from "@mui/icons-material/Menu";
+import { Button, Stack, IconButton } from '@mui/material';
+import { useState } from 'react';
+import React from 'react';
+import { Box } from '@mui/material';
+import BookCallButton from './BookCallButton';
+import HeaderBrand from './HeaderBrand';
+import NavTabs from './NavTabs';
+import MobileDrawer from './MobileDrawer';
+import BookCallDialog from './BookCallDialog';
+import MenuIcon from '@mui/icons-material/Menu';
+import { motion } from 'framer-motion';
+import { XFlip } from '../extra/AnimatedSection';
+import { Animation } from '../extra/AnimatedSection';
 
-const Header = ({ className="", onTabChange, sections }) => {
-
-
+const Header = ({ className = '', onTabChange, sections }) => {
   const [dialogOpen, setDialogOpen] = useState(false);
   const [drawerOpen, setDrawerOpen] = useState(false);
 
@@ -31,7 +32,7 @@ const Header = ({ className="", onTabChange, sections }) => {
     <Stack
       className={`${className}`}
       sx={{
-        boxShadow: "0 2px 8px rgba(0, 0, 0, 0.1)",
+        boxShadow: '0 2px 8px rgba(0, 0, 0, 0.1)',
         px: { xs: 2, md: 4 },
       }}
       direction="row"
@@ -39,25 +40,27 @@ const Header = ({ className="", onTabChange, sections }) => {
       alignItems="center"
     >
       {/* Logo and Name */}
-      <HeaderBrand />
+      <Animation id="header-logo-animation" name="Rotate X">
+        <HeaderBrand />
+      </Animation>
 
       {/* Desktop Tabs */}
       <Box
         sx={{
-          display: { xs: "none", md: "flex" },
-          justifyContent: "center",
+          display: { xs: 'none', md: 'flex' },
+          justifyContent: 'center',
         }}
       >
         <NavTabs sections={sections} onTabChange={onTabChange} />
       </Box>
 
       {/* Desktop Book a Call button */}
-      <Box sx={{ display: { xs: "none", md: "flex" }, alignItems: "center" }}>
+      <Box sx={{ display: { xs: 'none', md: 'flex' }, alignItems: 'center' }}>
         <BookCallButton onClick={handleBookCallClick} />
       </Box>
 
       <IconButton
-        sx={{ display: { xs: "flex", md: "none" } }}
+        sx={{ display: { xs: 'flex', md: 'none' } }}
         onClick={handleDrawerToggle}
       >
         <MenuIcon />

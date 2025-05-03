@@ -1,5 +1,6 @@
-import { useTheme } from "@mui/material/styles";
-import { Box } from '@mui/material'
+import { useTheme } from '@mui/material/styles';
+import { Box } from '@mui/material';
+import MediaWithLoadEvent from '../../Test/MediaWithLoadEvent';
 
 const StyledComputer = () => {
   const theme = useTheme();
@@ -55,23 +56,25 @@ const StyledComputer = () => {
   );
 };
 
-const Logo = ({height = 64, url="/Hacker.svg"}) => {
+const Logo = ({ height = 64, url = '/Hacker.svg' }) => {
   return (
-    <Box
-      component="img"
-      src={url}
-      alt="Logo"
-      sx={{
-        width: height, // Customize as needed
-        height: height,
-        display: "block",
-        margin: "auto", // Center it if needed
-      }}
-    />
+    <MediaWithLoadEvent id="logo">
+      <Box
+        component="img"
+        src={url}
+        alt="Logo"
+        sx={{
+          width: height, // Customize as needed
+          height: height,
+          display: 'block',
+          margin: 'auto', // Center it if needed
+        }}
+      />
+    </MediaWithLoadEvent>
   );
 };
 
-const InlineLogo = ({ height = "1.1em", mx=0.5, url = "/Hacker.svg" }) => {
+const InlineLogo = ({ height = '1.1em', mx = 0.5, url = '/Hacker.svg' }) => {
   return (
     <Box
       component="img"
@@ -82,23 +85,18 @@ const InlineLogo = ({ height = "1.1em", mx=0.5, url = "/Hacker.svg" }) => {
         width: 'auto',
         display: 'inline-block',
         verticalAlign: 'text-bottom',
-        mx, // horizontal margin for spacing
+        mx,
       }}
     />
   );
 };
 
 const Hacker = () => {
-  return (
-    <Logo />
-  )
-}
+  return <Logo />;
+};
 
 const SiteIcon = () => {
-
-  return (
-    <StyledComputer />
-  )
-}
+  return <StyledComputer />;
+};
 
 export { SiteIcon, Hacker, Logo, InlineLogo };

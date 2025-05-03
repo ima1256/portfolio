@@ -11,9 +11,8 @@ const HeaderBrand = () => {
       alignItems="center"
       className="cursor-pointer"
     >
-      <MediaWithLoadEvent>
-        <Hacker />
-      </MediaWithLoadEvent>
+      <Hacker />
+
       <Typography
         variant="h5"
         sx={{

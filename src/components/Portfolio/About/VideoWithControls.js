@@ -1,23 +1,44 @@
-import { useRef, useState } from "react";
-import { Box, Button } from "@mui/material";
-import VideoProgressLine from "./VideoProgressLine";
+import { useRef, useState } from 'react';
+import { Box, Button } from '@mui/material';
+import VideoProgressLine from './VideoProgressLine';
+import MediaWithLoadEvent from '../../Test/MediaWithLoadEvent';
+import { v4 as uuidv4 } from 'uuid'; // for unique video instance ID
+import { eventBus } from '../../../eventBus';
+import { useEffect } from 'react';
+import SliderLine from '../../Test/SliderLine';
 
 const VideoWithControls = ({
   showControls = true,
-  video = "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
-  width = "100%",
-  borderRadius = "0",
+  video = 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4',
+  width = '100%',
+  borderRadius = '0',
   showProgressLine = true,
-  thumbnail = "/images/video-test.jpeg"
+  thumbnail = '/images/video-test.jpeg',
 }) => {
   const [isMuted, setIsMuted] = useState(false); // State to manage the muted/unmuted status
 
-
-
-  const [isLoaded, setIsLoaded] = useState(true); // State to track loading
-
   const [isPlaying, setIsPlaying] = useState(false);
   const videoRef = useRef(null);
+  const idRef = useRef(uuidv4()); // Unique ID per instance
+  const [firstInteracted, setFirstInteracted] = useState(false);
+
+  const handleFirstInteracted = () => {
+    setFirstInteracted(true);
+  };
+
+  useEffect(() => {
+    const handleVideoPlaying = (playingId) => {
+      if (playingId !== idRef.current && videoRef.current) {
+        videoRef.current.pause();
+        setIsPlaying(false);
+      }
+    };
+
+    eventBus.on('videoPlaying', handleVideoPlaying);
+    return () => {
+      eventBus.off('videoPlaying', handleVideoPlaying);
+    };
+  }, []);
 
   //Over START
   const [isHovered, setIsHovered] = useState(false);
@@ -35,10 +56,10 @@ const VideoWithControls = ({
 
   const handlePlay = () => {
     if (videoRef.current) {
+      if (!firstInteracted) handleFirstInteracted();
       videoRef.current.play();
       setIsPlaying(true);
-    } else {
-
+      eventBus.emit('videoPlaying', idRef.current);
     }
   };
 
@@ -49,69 +70,81 @@ const VideoWithControls = ({
     }
   };
 
+  const handleVideoEnd = () => {
+    setIsPlaying(false);
+    videoRef.current.currentTime = 0; // Reset the video time to the beginning
+  };
+
   return (
     <Box
       sx={{
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
         gap: 2,
-        justifyContent: "center",
+        justifyContent: 'center',
       }}
     >
-
+      {}
       <div
         style={{
-          position: "relative",
+          position: 'relative',
           width,
-          aspectRatio: "16 / 9", // Keeps height stable before video loads
-          backgroundColor: "black", // Prevents flashing
+          aspectRatio: '16 / 9', // Keeps height stable before video loads
+          backgroundColor: 'black', // Prevents flashing
           borderRadius,
-          overflow: "hidden",
+          overflow: 'hidden',
         }}
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
       >
-        <video
-          ref={videoRef}
-          style={{
-            width: "100%",
-            height: "100%",
-            objectFit: "cover",
-            opacity: isLoaded ? 1 : 0,
-            transition: "opacity 0.5s ease-in-out",
-          }}
-          onCanPlayThrough={() => setIsLoaded(true)}
-          src={video}
-          poster={thumbnail}
-          muted={isMuted}
-          controls={false}
-          loop
-        />
+        <MediaWithLoadEvent id={idRef.current}>
+          <video
+            ref={videoRef}
+            style={{
+              width: '100%',
+              height: '100%',
+              objectFit: 'cover',
+            }}
+            src={video}
+            poster={thumbnail}
+            muted={isMuted}
+            onEnded={handleVideoEnd}
+            controls={false}
+          />
+        </MediaWithLoadEvent>
 
-        <VideoProgressLine show={showControls && isHovered} videoRef={videoRef}/>
+        <SliderLine
+          show={showControls && isHovered && firstInteracted}
+          videoRef={videoRef}
+        />
+        {/* 
+        <VideoProgressLine
+          show={showControls && isHovered && firstInteracted}
+          videoRef={videoRef}
+        /> */}
 
         <div
           style={{
-            position: "absolute",
-            top: "10px",
-            right: "10px",
-            backgroundColor: "rgba(0, 0, 0, 0.5)",
-            borderRadius: "50%",
-            padding: "5px",
-            cursor: "pointer",
-            opacity: showControls && isHovered ? 1 : 0,
-            transition: "all 1s ease",
+            position: 'absolute',
+            top: '10px',
+            right: '10px',
+            backgroundColor: 'rgba(0, 0, 0, 0.5)',
+            borderRadius: '50%',
+            padding: '5px',
+            cursor: 'pointer',
+            opacity: showControls && isHovered && firstInteracted ? 1 : 0,
+            transition: 'all 1s ease',
           }}
           onClick={toggleMute}
         >
-          <span style={{ color: "white", fontSize: "20px" }}>
-            {isMuted ? "🔇" : "🔊"}
+          <span style={{ color: 'white', fontSize: '20px' }}>
+            {isMuted ? '🔇' : '🔊'}
           </span>
         </div>
       </div>
 
-      <Box sx={{ display: showControls ? "flex" : "none", gap: 2 }}>
+      <Box sx={{ display: showControls ? 'flex' : 'none', gap: 2 }}>
         <Button
           variant="contained"
           color="primary"

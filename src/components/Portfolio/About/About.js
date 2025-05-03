@@ -1,7 +1,7 @@
-import { Box, Button, Stack, Typography, IconButton } from "@mui/material";
-import { forwardRef, useState, useRef, useEffect } from "react";
-
-import VideoSide from "./VideoSide";
+import { Box, Button, Stack, Typography, IconButton } from '@mui/material';
+import { forwardRef, useState, useRef, useEffect } from 'react';
+import { Animation } from '../extra/AnimatedSection';
+import VideoSide from './VideoSide';
 
 const MainTitle = ({ sx }) => {
   return (
@@ -9,9 +9,9 @@ const MainTitle = ({ sx }) => {
       variant="h4" // Adjusted for a more prominent heading
       sx={[
         {
-          fontWeight: "bold",
-          color: "primary.main",
-          textAlign: "center",
+          fontWeight: 'bold',
+          color: 'primary.main',
+          textAlign: 'center',
         },
         sx,
       ]}
@@ -21,17 +21,8 @@ const MainTitle = ({ sx }) => {
   );
 };
 
-const About = forwardRef(({className=""}, ref) => {
+const About = forwardRef(({ className = '' }, ref) => {
   const videoRef = useRef(null);
-  const textRef = useRef(null);
-
-  // useEffect(() => {
-  //   // Trigger animation after component mounts
-  //   if (videoRef.current && textRef.current) {
-  //     videoRef.current.classList.add("animate-left");
-  //     textRef.current.classList.add("animate-right");
-  //   }
-  // }, []);
 
   return (
     <Stack className={`${className}`} direction="column" spacing={3}>
@@ -40,11 +31,22 @@ const About = forwardRef(({className=""}, ref) => {
         spacing={3}
         className="items-center justify-center"
       >
-        <MainTitle />
-        {/* <VideoSide ref={videoRef} /> */}
-      </Stack>
+        <Animation
+          id="main-title-animation"
+          name="Slide Down"
+          waitForAnimation="header-logo-animation"
+        >
+          <MainTitle />
+        </Animation>
 
-      {/* <TextSide ref={textRef} /> */}
+        <Animation
+          id="main-video-animation"
+          name="Slide Down"
+          waitForAnimation="main-title-animation"
+        >
+          <VideoSide ref={videoRef} />
+        </Animation>
+      </Stack>
     </Stack>
   );
 });
