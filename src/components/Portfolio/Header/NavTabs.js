@@ -24,7 +24,7 @@ const NavTabs = ({ onTabChange }) => {
         <Tab
           key={index}
           label={section.name}
-          sx={{ fontSize: '16px', minHeight: '64px' }}
+          sx={{ fontSize: '16px', fontWeight: 'bold', minHeight: '64px' }}
         />
       ))}
     </Tabs>

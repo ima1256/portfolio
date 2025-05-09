@@ -112,7 +112,7 @@ const VideoWithControls = ({
               objectFit: 'cover',
             }}
             src={video}
-            poster={thumbnail}
+            // poster={thumbnail}
             muted={isMuted}
             onEnded={handleVideoEnd}
             controls={false}

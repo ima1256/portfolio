@@ -5,7 +5,7 @@ import { forwardRef } from 'react';
 const VideoSide = forwardRef(({ sx }, ref) => {
   return (
     <Box sx={[{}, sx]} className="flex justify-center items-center">
-      <VideoWithControls borderRadius="3%" width="60%" showControls={true} />
+      <VideoWithControls borderRadius="3%" width="80%" showControls={true} />
     </Box>
   );
 });
