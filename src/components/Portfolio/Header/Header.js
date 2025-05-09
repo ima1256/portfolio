@@ -11,6 +11,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 import { motion } from 'framer-motion';
 import { XFlip } from '../extra/AnimatedSection';
 import { Animation } from '../extra/AnimatedSection';
+import { animationIds } from '../../Test/Animations';
 
 const Header = ({ className = '', onTabChange, sections }) => {
   const [dialogOpen, setDialogOpen] = useState(false);
@@ -40,7 +41,7 @@ const Header = ({ className = '', onTabChange, sections }) => {
       alignItems="center"
     >
       {/* Logo and Name */}
-      <Animation id="header-logo-animation" name="Rotate X">
+      <Animation id={animationIds.headerLogo} name="Rotate X">
         <HeaderBrand />
       </Animation>
 

@@ -12,10 +12,10 @@ const AnimatedSection = ({ children }) => {
     <MotionBox
       style={{ willChange: 'transform, opacity' }}
       className=""
-      initial={{ opacity: 0, y: '-30vh' }}
+      initial={{ opacity: 0, y: '30vh' }}
       whileInView={{ opacity: 1, y: 0, x: 0 }}
       transition={{ duration: 1 }}
-      viewport={{ once: true, amount: 0.7 }}
+      viewport={{ once: true, amount: 0.1 }}
     >
       {children}
     </MotionBox>
@@ -129,14 +129,17 @@ const TestAnimation = ({ children }) => {
 
 const Animation = ({
   children,
-  name,
   id,
+  name = 'Rotate X',
   duration = 1,
   waitForAnimation = '',
 }) => {
   const [triggered, setTriggered] = useState(waitForAnimation ? false : true);
 
   useEffect(() => {
+    console.log('Animation ID:', id); // should be 'mainTitle'
+    console.log('Waiting for:', waitForAnimation); // should be 'headerLogo'
+
     const handleEvent = (data) => {
       console.log(data);
       setTriggered(true);

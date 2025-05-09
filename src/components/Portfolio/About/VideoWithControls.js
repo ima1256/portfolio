@@ -7,6 +7,9 @@ import { eventBus } from '../../../eventBus';
 import { useEffect } from 'react';
 import SliderLine from '../../Test/SliderLine';
 
+import PlayArrowIcon from '@mui/icons-material/PlayArrow';
+import StopIcon from '@mui/icons-material/Stop';
+
 const VideoWithControls = ({
   showControls = true,
   video = 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4',
@@ -143,21 +146,69 @@ const VideoWithControls = ({
           </span>
         </div>
       </div>
-
-      <Box sx={{ display: showControls ? 'flex' : 'none', gap: 2 }}>
+      <Box
+        sx={{
+          display: showControls ? 'flex' : 'none',
+          gap: 2,
+          justifyContent: 'center',
+        }}
+      >
         <Button
-          variant="contained"
-          color="primary"
           onClick={handlePlay}
           disabled={isPlaying}
+          startIcon={<PlayArrowIcon />}
+          sx={(theme) => ({
+            px: 4,
+            py: 1.5,
+            borderRadius: '12px',
+            fontWeight: 'bold',
+            textTransform: 'none',
+            boxShadow: isPlaying ? 'none' : 3,
+            background: `linear-gradient(135deg, ${theme.palette.primary.main}, ${theme.palette.secondary.main})`,
+            color: theme.palette.getContrastText(theme.palette.primary.main),
+            transition:
+              'transform 0.2s ease, box-shadow 0.2s ease, background 0.3s ease',
+            '&:hover': {
+              transform: 'translateY(-2px)',
+              boxShadow: 4,
+              background: `linear-gradient(135deg, ${theme.palette.primary.dark}, ${theme.palette.secondary.dark})`,
+            },
+            '&:disabled': {
+              opacity: 0.6,
+              cursor: 'not-allowed',
+              background: `linear-gradient(135deg, ${theme.palette.grey[400]}, ${theme.palette.grey[500]})`,
+            },
+          })}
         >
           Play
         </Button>
+
         <Button
-          variant="contained"
-          color="secondary"
           onClick={handleStop}
           disabled={!isPlaying}
+          startIcon={<StopIcon />}
+          sx={(theme) => ({
+            px: 4,
+            py: 1.5,
+            borderRadius: '12px',
+            fontWeight: 'bold',
+            textTransform: 'none',
+            boxShadow: !isPlaying ? 'none' : 3,
+            background: `linear-gradient(135deg, ${theme.palette.secondary.main}, ${theme.palette.tertiary.main})`,
+            color: theme.palette.getContrastText(theme.palette.secondary.main),
+            transition:
+              'transform 0.2s ease, box-shadow 0.2s ease, background 0.3s ease',
+            '&:hover': {
+              transform: 'translateY(-2px)',
+              boxShadow: 4,
+              background: `linear-gradient(135deg, ${theme.palette.secondary.dark}, ${theme.palette.tertiary.dark})`,
+            },
+            '&:disabled': {
+              opacity: 0.6,
+              cursor: 'not-allowed',
+              background: `linear-gradient(135deg, ${theme.palette.grey[400]}, ${theme.palette.grey[500]})`,
+            },
+          })}
         >
           Stop
         </Button>

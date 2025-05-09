@@ -6,6 +6,14 @@ const animations = {
     animate: { y: 0, opacity: 1 },
     transition: { type: 'spring', stiffness: 400, damping: 10, duration: 1 },
   },
+  'Fade In Only': {
+    initial: { opacity: 0 },
+    animate: { opacity: 1 },
+    transition: {
+      duration: 1, // Customize as needed
+      ease: 'easeInOut',
+    },
+  },
   'Slide from Left': {
     initial: { x: -300, opacity: 0 },
     animate: { x: 0, opacity: 1 },
@@ -92,9 +100,9 @@ const animations = {
 };
 
 const animationIds = {
-  headerLogo: uuidv4(),
-  mainTitle: uuidv4(),
-  mainVideo: uuidv4(),
+  headerLogo: '7a93743a-2162-446d-9c5b-4a61bd5a058f',
+  mainTitle: '3658fe77-e72c-4f5d-9c02-5369d1e3365c',
+  mainVideo: '79cb28f2-d12e-452d-9548-28d134322b19',
 };
 
 export { animations, animationIds };

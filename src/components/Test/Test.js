@@ -13,6 +13,9 @@ import { TestAnimation } from '../Portfolio/extra/AnimatedSection';
 import AnimationsPlayground from './AnimationsPlayground';
 import About from '../Portfolio/About/About';
 import { Animation } from '../Portfolio/extra/AnimatedSection';
+import { animationIds } from './Animations';
+import Projects from '../Portfolio/Projects';
+import { colors, Button } from '@imacorp/utils-components';
 
 const Test = () => {
   const src =
@@ -44,15 +47,20 @@ const Test = () => {
   //   );
   // }
 
+  console.log(Button);
+
   return (
     <Stack className="h-full justify-center items-center">
       {/* <AnimationsPlayground>
         <HeaderBrand />
       </AnimationsPlayground> */}
-      <Animation id="header-logo-animation" name="Rotate X" duration={1}>
+      {/* <Animation id={animationIds.headerLogo} name="Rotate X" duration={1}>
         <HeaderBrand />
       </Animation>
-      <About />
+      <About /> */}
+      {JSON.stringify(Button)}
+      <Button label="kick me" onClick={() => alert('clicked')}></Button>
+      {/* <Projects></Projects> */}
     </Stack>
   );
 };

@@ -1,136 +1,256 @@
 {
-    "calendlyLink": "https://calendly.com/imanolcondeimanol/20min",
-    "socials": {
-      "github": {
-        "url": "https://github.com/ima1256"
-      },
-      "linkedin": {
-        "url": "https://www.linkedin.com/in/imanolcondegonzalez"
-      },
-      "facebook": {
-        "url": "https://www.facebook.com/imanol.conde.37"
-      }
+  "calendlyLink": "https://calendly.com/imanolcondeimanol/20min",
+  "socials": {
+    "github": {
+      "url": "https://github.com/ima1256"
     },
-    "primeVideo": {
-        "url": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+    "linkedin": {
+      "url": "https://www.linkedin.com/in/imanolcondegonzalez"
     },
-    "myJourney": {
-        "events": [
-            {        
-                "date": "",
-                "name": "",
-                "description": ""
-            }
-        ]
-
+    "facebook": {
+      "url": "https://www.facebook.com/imanol.conde.37"
     },
-    "projects": [
-      {
-        "id": 1,
-        "name": "project1",
-        "description": "Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging across all continents except Antarctica",
-        "thumbnail": "https://i.imgur.com/389fePD.jpg",
-        "video": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
-        "demo": "https://nextjs.org/"
-      },
-      {
-        "id": 2,
-        "name": "project2",
-        "description": "Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging across all continents except Antarctica",
-        "thumbnail": "https://i.imgur.com/389fePD.jpg",
-        "video": "https://www.youtube.com/embed/gwF9hKUCPCo?si=g4iZDphHLmHHDCfE",
-        "demo": "https://play.tailwindcss.com/"
-      },
-      {
-        "id": 3,
-        "name": "project3",
-        "description": "Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging across all continents except Antarctica",
-        "thumbnail": "https://i.imgur.com/389fePD.jpg",
-        "video": "https://www.youtube.com/embed/gwF9hKUCPCo?si=g4iZDphHLmHHDCfE",
-        "demo": "https://reactshowcase1234.netlify.app"
-      }
-    ],    
-    "contactInfo": {
-        "name":  "Imanol Conde González",
-        "email": "imanolcondeimanol@gmail.com",
-        "phone": {
-            "ext": "34",
-            "value": "627188184"
-        },
-        "location": "Hondarribia, Guipuzkoa, Basque Country",
-        "photo": {
-            "full": "fullPhotoUrl.png",
-            "thumbnail": "thumbnailPhotoUrl"
-        },
-        "bornDate": "",
-        "selfDescription": ""
+    "x": {
+      "url": ""
     },
-    "liveStreaming": {
-        "stats": {
-            "totalHours": ""
-        }
+    "youtube": {
+      "url": ""
     },
-    "skills": {
-        "main": ["react", "tailwind", "mongoDB", "saas", "nodejs", "linux"],
-        "all": {
-            "react": {
-              "logoUrl": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg",
-              "level": "5"
-            },
-            "tailwind": {
-              "logoUrl": "",
-              "level": "5"
-            },
-            "mongodb": {
-              "logoUrl": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg",
-              "level": "5"
-            },
-            "saas": {
-              "logoUrl": "",
-              "level": "5"
-            },
-            "nodejs": {
-              "logoUrl": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg",
-              "level": "5"
-            },
-            "linux": {
-              "logoUrl": "",
-              "level": "5"
-            },
-            "backend": {
-                "logoUrl": "https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/svgs/solid/database.svg"
-            }
-          }          
-    } ,
-    "education": {
-        "institutions": [
-            {
-                "name": "Upv/Ehu",
-                "institutionLogoUrl": "",
-                "degree": "Computer Science",
-                "degreeLogoUrl": "",
-                "skillsAquired": ["python", "SQL"],
-                "description": {
-                    "short": "",
-                    "long": ""
-                },
-                "date": {
-                    "from": "",
-                    "to": ""
-                }
-            }
-
-        ]
+    "discord": {
+      "url": ""
     },
-    "experience": {
-        "companies": [
-            {
-                "name": "Geminys",
-                "title": "Junior Software Engineer",
-                "description": "",
-                "skillsAquired": ["python", "SQL"]
-            }
-        ]
+    "instagram": {
+      "url": ""
+    },
+    "spotify": {
+      "url": ""
     }
+  },
+  "introVideo": {
+    "url": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+  },
+  "info": {
+    "name": "Imanol Conde González",
+    "email": "imanolcondeimanol@gmail.com",
+    "phone": {
+      "ext": "34",
+      "value": "627188184"
+    },
+    "location": "Hondarribia, Guipuzkoa, Basque Country",
+    "photo": {
+      "full": "fullPhotoUrl.png",
+      "thumbnail": "thumbnailPhotoUrl"
+    },
+    "bornDate": "",
+    "selfDescription": "Full-stack developer passionate about building beautiful frontends and performant backends. Started in aerospace engineering, now focused on MERN stack development and coding live on Facebook."
+  },
+  "streaming": {
+    "stats": {
+      "totalHours": ""
+    }
+  },
+  "myJourney": {
+    "events": [
+      {
+        "date": "2017-2019",
+        "name": "Aerospace Engineering",
+        "description": "Started studies in Aerospace Engineering at the University of Leon and developed an interest in programming."
+      },
+      {
+        "date": "2019-2024",
+        "name": "Computer Science",
+        "description": "Studied Computer Science at UPV/EHU with a mention in Machine Learning."
+      },
+      {
+        "date": "2023-02 to 2023-08",
+        "name": "Internship at ZITU",
+        "description": "Worked on project management software using Angular, .NET, and SQL Server."
+      },
+      {
+        "date": "2023-10-16 to 2024-04-09",
+        "name": "Junior Software Engineer at Geminys",
+        "description": "Built applications with Vue.js and Java Spring Boot, using MongoDB, CI/CD, AWS, and Git tools."
+      }
+    ]
+  },
+  "projects": [
+    {
+      "id": 1,
+      "name": "Project1",
+      "description": "Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging across all continents except Antarctica",
+      "thumbnail": "https://i.imgur.com/389fePD.jpg",
+      "video": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
+      "demo": "https://nextjs.org/"
+    },
+    {
+      "id": 2,
+      "name": "project2",
+      "description": "Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging across all continents except Antarctica",
+      "thumbnail": "https://i.imgur.com/389fePD.jpg",
+      "video": "https://www.youtube.com/embed/gwF9hKUCPCo?si=g4iZDphHLmHHDCfE",
+      "demo": "https://play.tailwindcss.com/"
+    },
+    {
+      "id": 3,
+      "name": "project3",
+      "description": "Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging across all continents except Antarctica",
+      "thumbnail": "https://i.imgur.com/389fePD.jpg",
+      "video": "https://www.youtube.com/embed/gwF9hKUCPCo?si=g4iZDphHLmHHDCfE",
+      "demo": "https://reactshowcase1234.netlify.app"
+    }
+  ],
+  "skills": {
+    "main": ["react", "tailwind", "mongoDB", "saas", "nodejs", "linux"],
+    "all": {
+      "react": {
+        "logoUrl": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg",
+        "level": "5"
+      },
+      "tailwind": {
+        "logoUrl": "",
+        "level": "5"
+      },
+      "mongodb": {
+        "logoUrl": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg",
+        "level": "5"
+      },
+      "saas": {
+        "logoUrl": "",
+        "level": "5"
+      },
+      "nodejs": {
+        "logoUrl": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg",
+        "level": "5"
+      },
+      "linux": {
+        "logoUrl": "",
+        "level": "5"
+      },
+      "html5": {
+        "logoUrl": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg",
+        "level": "5"
+      },
+      "css3": {
+        "logoUrl": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg",
+        "level": "5"
+      },
+      "javascript": {
+        "logoUrl": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg",
+        "level": "5"
+      },
+      "angular": {
+        "logoUrl": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/angularjs/angularjs-original.svg",
+        "level": "5"
+      },
+      "vue": {
+        "logoUrl": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vuejs/vuejs-original.svg",
+        "level": "5"
+      },
+      "vuetify": {
+        "logoUrl": "",
+        "level": "4"
+      },
+      "typescript": {
+        "logoUrl": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg",
+        "level": "5"
+      },
+      "java": {
+        "logoUrl": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg",
+        "level": "5"
+      },
+      "springboot": {
+        "logoUrl": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/spring/spring-original.svg",
+        "level": "4"
+      },
+      "dotnet": {
+        "logoUrl": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/dot-net/dot-net-original.svg",
+        "level": "4"
+      },
+      "csharp": {
+        "logoUrl": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg",
+        "level": "4"
+      },
+      "mysql": {
+        "logoUrl": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg",
+        "level": "4"
+      },
+      "python": {
+        "logoUrl": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg",
+        "level": "5"
+      },
+      "cpp": {
+        "logoUrl": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg",
+        "level": "3"
+      },
+      "xpath": {
+        "logoUrl": "",
+        "level": "3"
+      },
+      "teamwork": {
+        "logoUrl": "",
+        "level": "5"
+      },
+      "backend": {
+        "logoUrl": "https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/svgs/solid/database.svg"
+      }
+    }
+  },
+  "education": {
+    "institutions": [
+      {
+        "name": "University of Leon",
+        "institutionLogoUrl": "",
+        "degree": "Aerospace Engineering",
+        "degreeLogoUrl": "",
+        "skillsAquired": [],
+        "description": {
+          "short": "Started coding journey.",
+          "long": "Developed an interest in programming during Aerospace Engineering studies."
+        },
+        "date": {
+          "from": "2017",
+          "to": "2019"
+        }
+      },
+      {
+        "name": "Upv/Ehu",
+        "institutionLogoUrl": "",
+        "degree": "Computer Science (Mention in ML)",
+        "degreeLogoUrl": "",
+        "skillsAquired": ["python", "SQL"],
+        "description": {
+          "short": "",
+          "long": ""
+        },
+        "date": {
+          "from": "2019",
+          "to": "2024"
+        }
+      }
+    ]
+  },
+  "experience": {
+    "companies": [
+      {
+        "name": "Geminys",
+        "title": "Junior Software Engineer",
+        "description": "Worked with Vue.js frontend and Java Spring Boot backend to develop image repositories, UI tools, and integrated CI/CD with AWS and Jenkins.",
+        "skillsAquired": [
+          "python",
+          "SQL",
+          "Vue.js",
+          "Java",
+          "MongoDB",
+          "AWS",
+          "CI/CD"
+        ]
+      },
+      {
+        "name": "ZITU",
+        "title": "Intern Software Engineer",
+        "description": "Built project management software features with Angular, .NET, and SQL Server. Completed 450 hours improving frontend and backend systems.",
+        "skillsAquired": ["Angular", "TypeScript", ".NET", "C#", "SQL Server"]
+      }
+    ]
   }
-  
+}

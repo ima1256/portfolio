@@ -2,25 +2,35 @@ import { Box, Button, Stack, Typography, IconButton } from '@mui/material';
 import { forwardRef, useState, useRef, useEffect } from 'react';
 import { Animation } from '../extra/AnimatedSection';
 import VideoSide from './VideoSide';
+import { animationIds } from '../../Test/Animations';
 
 const MainTitle = ({ sx }) => {
   return (
     <Typography
-      variant="h4" // Adjusted for a more prominent heading
+      variant="h3" // Use h3 for a larger, more prominent title
       sx={[
         {
           fontWeight: 'bold',
-          color: 'primary.main',
-          textAlign: 'center',
+          color: 'primary.main', // Primary theme color
+          textAlign: 'center', // Center the text
+          letterSpacing: 1.5, // Slight letter spacing for a clean look
+          textTransform: 'uppercase', // Uppercase for a more dynamic feel
+          fontSize: { xs: '2rem', sm: '3rem', md: '4rem' }, // Responsive font size
+          lineHeight: 1.2, // Tighten the line height for more compact text
+          textShadow: '0 4px 8px rgba(0, 0, 0, 0.2)', // Add a subtle shadow for depth
+          transition: 'color 0.3s ease, transform 0.3s ease', // Smooth transition for hover effect
+          '&:hover': {
+            color: 'secondary.main', // Change color on hover
+            transform: 'scale(1.05)', // Slightly scale up on hover for a dynamic effect
+          },
         },
-        sx,
+        sx, // Allow additional customizations via props
       ]}
     >
       1 Line At a Time!
     </Typography>
   );
 };
-
 const About = forwardRef(({ className = '' }, ref) => {
   const videoRef = useRef(null);
 
@@ -32,17 +42,17 @@ const About = forwardRef(({ className = '' }, ref) => {
         className="items-center justify-center"
       >
         <Animation
-          id="main-title-animation"
+          id={animationIds.mainTitle}
           name="Slide Down"
-          waitForAnimation="header-logo-animation"
+          waitForAnimation={animationIds.headerLogo}
         >
           <MainTitle />
         </Animation>
 
         <Animation
-          id="main-video-animation"
-          name="Slide Down"
-          waitForAnimation="main-title-animation"
+          id={animationIds.mainVideo}
+          name="Fade In Only"
+          waitForAnimation={animationIds.mainTitle}
         >
           <VideoSide ref={videoRef} />
         </Animation>

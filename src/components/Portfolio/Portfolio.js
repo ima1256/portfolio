@@ -104,7 +104,6 @@ const Portfolio = () => {
           className="h-full items-center justify-center flex-grow"
           ref={aboutRef}
         />
-        {/* </AnimatedMain> */}
       </Stack>
 
       <AnimatedSection>
@@ -119,17 +118,15 @@ const Portfolio = () => {
           ref={projectsRef}
         />
       </AnimatedSection>
-      {/* {project ? (
-        <LiveDemo
-          parentSX={{
-            minHeight: defaultSectionHeight,
-            height: defaultSectionHeight,
-          }}
-   
-          project={project}
-          ref={liveDemoRef}
-        />
-      ) : null} */}
+      <LiveDemo
+        parentSX={{
+          minHeight: defaultSectionHeight,
+          height: defaultSectionHeight,
+        }}
+        project={project}
+        ref={liveDemoRef}
+      />
+
       {/* <LiveCoding sx={{}} ref={liveCodingRef} /> */}
       {/* <Skills ref={skillsRef} /> */}
       {/* <Contact ref={contactRef} /> */}
