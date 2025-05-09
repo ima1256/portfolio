@@ -1,0 +1,77 @@
+Imanol Conde González
+FULL-STACK DEVELOPER
+imanolcondeimanol@gmail.com
++34 627 188 184
+Hondarribia, Basque Country, Spain
+
+SKILLS
+Linux
+HTML5 / CSS3
+JS / NodeJS
+Angular 15 / 16
+React 18
+Vue / Vuetify
+Typescript
+
+Java / Spring Boot
+.NET with C#
+MySQL
+MongoDB
+Python / C++ / XPath
+Teamwork
+
+
+ABOUT ME
+Since I started in aerospace engineering I was
+hooked with code and I did not stop since then.
+I love building frontends that look good and
+
+
+
+backends that perform well, something that I
+
+
+am deepening my knowledge into coding lives
+
+
+on facebook.
+
+
+
+What I can do for the team?
+
+
+Watch this 30 second video I created for you!
+
+EDUCATION
+AEROSPACE ENGINEERING (2017-2019)
+University of Leon
+
+
+
+COMPUTER SCIENCE (2019 - 2024)
+UPV / EHU Mention in ML
+
+EXPERIENCE
+
+GEMINYS (2024) - 6 MONTHS - 16 / 10 / 2023 - 09 / 04 / 2024
+JUNIOR SOFTWARE ENGINEER
+
+- Worked in a team of 6 developers to build web applications using Vue.js
+(frontend) and Java Spring Boot, Microservices, MongoDB (backend).
+- Developed key features like an image repository, release management UI, and
+document editing tools.
+- Utilized Git stashing, ChatGPT for automation, and CI/CD with AWS and
+Jenkins.
+
+ZITU (2023) - 3 MONTHS - 02 / 2023 - 08 / 2023
+INTERN SOFTWARE ENGINEER
+
+- Developed project management software screens using Angular (15 & 16) with
+TypeScript, Syncfusion, and .NET (C#) with SQL Server.
+- Built key features like a comments section, selection menus, and project
+classification boards.
+- Completed 450 hours of development, enhancing both frontend and backend
+functionality.
+
+
