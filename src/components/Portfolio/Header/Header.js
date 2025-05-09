@@ -13,7 +13,7 @@ import { XFlip } from '../extra/AnimatedSection';
 import { Animation } from '../extra/AnimatedSection';
 import { animationIds } from '../../Test/Animations';
 
-const Header = ({ className = '', onTabChange, sections }) => {
+const Header = ({ className = '', onTabChange = () => {}, sections = [] }) => {
   const [dialogOpen, setDialogOpen] = useState(false);
   const [drawerOpen, setDrawerOpen] = useState(false);
 
@@ -31,7 +31,7 @@ const Header = ({ className = '', onTabChange, sections }) => {
 
   return (
     <Stack
-      className={`${className}`}
+      className={`${className} w-full`}
       sx={{
         boxShadow: '0 2px 8px rgba(0, 0, 0, 0.1)',
         px: { xs: 2, md: 4 },

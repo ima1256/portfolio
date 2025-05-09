@@ -14,7 +14,7 @@ import theme from './theme';
 
 import { routes } from './constants';
 
-import DataLoader from './components/DataLoader';
+// import DataLoader from './components/DataLoader';
 
 import Portfolio from './components/Portfolio/Portfolio';
 
@@ -29,7 +29,7 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       <Router>
-        <DataLoader />
+        {/* <DataLoader /> */}
         <div className="App h-full">
           <Routes>
             <Route path="/" element={<Home />} />

@@ -11,23 +11,35 @@
       "url": "https://www.facebook.com/imanol.conde.37"
     },
     "x": {
-      "url": ""
+      "url": "https://twitter.com/ima1256"
     },
     "youtube": {
-      "url": ""
+      "url": "https://www.youtube.com/@imanolcondegonzalez"
     },
     "discord": {
-      "url": ""
+      "url": "https://discord.com/invite/UxNXrBukjZ"
     },
     "instagram": {
-      "url": ""
+      "url": "https://www.instagram.com/imanolconde"
     },
     "spotify": {
-      "url": ""
+      "url": "https://open.spotify.com/user/cq1ew5ln3qf62ekvotzfvhpc4?si=dab169a8b5fa476e"
     }
   },
-  "introVideo": {
-    "url": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+  "page": {
+    "introVideo": {
+      "url": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+    },
+    "sections": [
+      { "name": "Header", "active": true, "data": { "logo": "", "text": "" } },
+      { "name": "About", "active": true },
+      { "name": "Timeline", "active": true },
+      { "name": "Projects", "active": true },
+      { "name": "Skills", "active": true },
+      { "name": "Live Coding", "active": true },
+      { "name": "Contact", "active": true },
+      { "name": "Footer", "active": true }
+    ]
   },
   "info": {
     "name": "Imanol Conde González",

@@ -16,19 +16,16 @@ import { Animation } from '../Portfolio/extra/AnimatedSection';
 import { animationIds } from './Animations';
 import Projects from '../Portfolio/Projects';
 import { colors, Button } from '@imacorp/utils-components';
+import { usePortfolio } from 'PortfolioContext';
+import Header from 'components/Portfolio/Header/Header';
 
 const Test = () => {
-  const src =
-    'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4';
+  const portfolioData = usePortfolio();
 
   const [loading, setLoading] = useState(true);
 
-  const videoRef = useRef(null);
-
   useEffect(() => {
     const handler = (data) => {
-      console.log('Video loaded:', data);
-
       setLoading(false);
     };
 
@@ -41,17 +38,7 @@ const Test = () => {
 
   return (
     <Stack className="h-full justify-center items-center">
-      {/* <AnimationsPlayground>
-        <HeaderBrand />
-      </AnimationsPlayground> */}
-      {/* <Animation id={animationIds.headerLogo} name="Rotate X" duration={1}>
-        <HeaderBrand />
-      </Animation>
-      <About /> */}
-      {JSON.stringify(Button)}
-      <img src="https://raw.githubusercontent.com/ima1256/portfolio/main/public/resources/facebook.png" />
-      <Button label="kick me" onClick={() => alert('clicked')}></Button>
-      {/* <Projects></Projects> */}
+      <Header></Header>
     </Stack>
   );
 };

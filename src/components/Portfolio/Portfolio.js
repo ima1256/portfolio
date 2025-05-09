@@ -28,12 +28,12 @@ const Portfolio = () => {
 
   const sections = [
     { name: 'About' },
-    // { name: "Timeline" },
+    { name: 'Timeline' },
     { name: 'Projects' },
-    // { name: "Skills" },
-    // { name: "Live Coding" },
-    // { name: "Contact" },
-    // { name: "Footer" },
+    { name: 'Skills' },
+    { name: 'Live Coding' },
+    { name: 'Contact' },
+    { name: 'Footer' },
   ];
 
   const [loading, setLoading] = useState(true);
