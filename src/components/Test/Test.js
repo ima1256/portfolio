@@ -39,16 +39,6 @@ const Test = () => {
     };
   }, []);
 
-  // if (loading) {
-  //   return (
-  //     <Stack className="justify-center items-center">
-  //       <Loading size={20} />
-  //     </Stack>
-  //   );
-  // }
-
-  console.log(Button);
-
   return (
     <Stack className="h-full justify-center items-center">
       {/* <AnimationsPlayground>
@@ -59,6 +49,7 @@ const Test = () => {
       </Animation>
       <About /> */}
       {JSON.stringify(Button)}
+      <img src="https://raw.githubusercontent.com/ima1256/portfolio/main/public/resources/facebook.png" />
       <Button label="kick me" onClick={() => alert('clicked')}></Button>
       {/* <Projects></Projects> */}
     </Stack>
