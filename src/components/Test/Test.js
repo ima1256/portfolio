@@ -15,14 +15,19 @@ import About from '../Portfolio/About/About';
 import { Animation } from '../Portfolio/extra/AnimatedSection';
 import { animationIds } from './Animations';
 import Projects from '../Portfolio/Projects';
-import { colors, Button } from '@imacorp/utils-components';
+// import { colors, Button } from '@imacorp/utils-components';
 import { usePortfolio } from 'PortfolioContext';
 import Header from 'components/Portfolio/Header/Header';
+import { useProjects, useSections } from 'PortfolioHooks';
 
 const Test = () => {
   const portfolioData = usePortfolio();
 
   const [loading, setLoading] = useState(true);
+
+  const projects = useProjects();
+
+  const sections = useSections();
 
   useEffect(() => {
     const handler = (data) => {
@@ -38,7 +43,7 @@ const Test = () => {
 
   return (
     <Stack className="h-full justify-center items-center">
-      <Header></Header>
+      <Header />
     </Stack>
   );
 };

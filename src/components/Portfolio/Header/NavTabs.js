@@ -1,7 +1,10 @@
-import { useState } from "react";
-import { Tabs, Tab } from '@mui/material'
+import { useState } from 'react';
+import { Tabs, Tab } from '@mui/material';
+import { useSections } from 'PortfolioHooks';
 
-const NavTabs = ({ sections, onTabChange }) => {
+const NavTabs = ({ onTabChange }) => {
+  const sections = useSections();
+
   const [value, setValue] = useState(0);
 
   const handleTabChange = (event, newValue) => {
@@ -15,17 +18,17 @@ const NavTabs = ({ sections, onTabChange }) => {
       onChange={handleTabChange}
       centered
       textColor="inherit"
-      sx={{ height: "100%" }}
+      sx={{ height: '100%' }}
     >
       {sections.map((section, index) => (
         <Tab
           key={index}
           label={section.name}
-          sx={{ fontSize: "16px", minHeight: "64px" }}
+          sx={{ fontSize: '16px', minHeight: '64px' }}
         />
       ))}
     </Tabs>
   );
 };
 
-export default NavTabs
+export default NavTabs;

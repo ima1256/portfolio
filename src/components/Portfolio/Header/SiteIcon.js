@@ -91,12 +91,8 @@ const InlineLogo = ({ height = '1.1em', mx = 0.5, url = '/Hacker.svg' }) => {
   );
 };
 
-const Hacker = () => {
-  return <Logo />;
-};
-
 const SiteIcon = () => {
   return <StyledComputer />;
 };
 
-export { SiteIcon, Hacker, Logo, InlineLogo };
+export { SiteIcon, Logo, InlineLogo };

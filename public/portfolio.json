@@ -27,18 +27,22 @@
     }
   },
   "page": {
-    "introVideo": {
-      "url": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+    "main": {
+      "video": {
+        "url": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
+        "thumbnail": ""
+      }
+    },
+    "logo": {
+      "url": "/hacker.svg"
     },
     "sections": [
-      { "name": "Header", "active": true, "data": { "logo": "", "text": "" } },
       { "name": "About", "active": true },
-      { "name": "Timeline", "active": true },
+
       { "name": "Projects", "active": true },
       { "name": "Skills", "active": true },
       { "name": "Live Coding", "active": true },
-      { "name": "Contact", "active": true },
-      { "name": "Footer", "active": true }
+      { "name": "Contact", "active": true }
     ]
   },
   "info": {

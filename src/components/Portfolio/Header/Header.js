@@ -12,8 +12,11 @@ import { motion } from 'framer-motion';
 import { XFlip } from '../extra/AnimatedSection';
 import { Animation } from '../extra/AnimatedSection';
 import { animationIds } from '../../Test/Animations';
+import { useSections } from 'PortfolioHooks';
 
-const Header = ({ className = '', onTabChange = () => {}, sections = [] }) => {
+const Header = ({ className = '', onTabChange = () => {} }) => {
+  const sections = useSections();
+
   const [dialogOpen, setDialogOpen] = useState(false);
   const [drawerOpen, setDrawerOpen] = useState(false);
 
@@ -48,20 +51,20 @@ const Header = ({ className = '', onTabChange = () => {}, sections = [] }) => {
       {/* Desktop Tabs */}
       <Box
         sx={{
-          display: { xs: 'none', md: 'flex' },
+          display: { xs: 'none', lg: 'flex' },
           justifyContent: 'center',
         }}
       >
-        <NavTabs sections={sections} onTabChange={onTabChange} />
+        <NavTabs onTabChange={onTabChange} />
       </Box>
 
       {/* Desktop Book a Call button */}
-      <Box sx={{ display: { xs: 'none', md: 'flex' }, alignItems: 'center' }}>
+      <Box sx={{ display: { xs: 'none', lg: 'flex' }, alignItems: 'center' }}>
         <BookCallButton onClick={handleBookCallClick} />
       </Box>
 
       <IconButton
-        sx={{ display: { xs: 'flex', md: 'none' } }}
+        sx={{ display: { xs: 'flex', lg: 'none' } }}
         onClick={handleDrawerToggle}
       >
         <MenuIcon />
@@ -69,7 +72,6 @@ const Header = ({ className = '', onTabChange = () => {}, sections = [] }) => {
 
       {/* Mobile Drawer */}
       <MobileDrawer
-        sections={sections}
         width={200}
         onTabChange={onTabChange}
         open={drawerOpen}

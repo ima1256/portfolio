@@ -11,10 +11,11 @@ import { useRef, useState } from 'react';
 import Timeline from './Timeline';
 import TextSide from './About/TextSide';
 import { useEffect } from 'react';
-import { useSelector } from 'react-redux';
+// import { useSelector } from 'react-redux';
 import { AnimatedSection, AnimatedMain } from './extra/AnimatedSection';
 import Loading from '../Test/Loading';
-import { eventBus } from '../../eventBus';
+import { usePortfolio } from 'PortfolioContext';
+import { useSections } from 'PortfolioHooks';
 
 const Portfolio = () => {
   const aboutRef = useRef(null);
@@ -26,30 +27,9 @@ const Portfolio = () => {
 
   const [project, setProject] = useState(null);
 
-  const sections = [
-    { name: 'About' },
-    { name: 'Timeline' },
-    { name: 'Projects' },
-    { name: 'Skills' },
-    { name: 'Live Coding' },
-    { name: 'Contact' },
-    { name: 'Footer' },
-  ];
+  const sections = useSections();
 
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    const handler = (data) => {
-      //console.log('Data loaded:', data);
-      setLoading(false);
-    };
-
-    eventBus.on('mediaLoaded', handler);
-
-    return () => {
-      eventBus.off('mediaLoaded', handler); // Clean up
-    };
-  }, []);
+  const { loading } = usePortfolio();
 
   const handleTabChange = (sectionName) => {
     if (sectionName === 'About') {
@@ -78,7 +58,7 @@ const Portfolio = () => {
 
   return (
     <Stack className="gap-[30vh]">
-      {/* {loading && <Loading size={18} />} */}
+      {loading && <Loading size={18} />}
       <Stack
         direction="column"
         sx={{
@@ -87,11 +67,7 @@ const Portfolio = () => {
         }}
         className="h-screen overflow-hidden"
       >
-        <Header
-          className="h-[64px]"
-          sections={sections}
-          onTabChange={handleTabChange}
-        />
+        <Header className="h-[64px]" onTabChange={handleTabChange} />
 
         {/* <div className="h-[64px] z-10 bg-red-500"></div> */}
 
@@ -106,9 +82,9 @@ const Portfolio = () => {
         />
       </Stack>
 
-      <AnimatedSection>
+      {/* <AnimatedSection>
         <TextSide sx={{ minHeight: defaultSectionHeight }} />
-      </AnimatedSection>
+      </AnimatedSection> */}
 
       {/* <Timeline sx={{ minHeight: defaultSectionHeight }} /> */}
       <AnimatedSection>

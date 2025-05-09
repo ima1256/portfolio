@@ -5,6 +5,7 @@ import { Box } from '@mui/material';
 import { animations } from '../../Test/Animations';
 import { eventBus } from '../../../eventBus';
 import { useState, useEffect } from 'react';
+import { useShowAnimations } from 'PortfolioHooks';
 
 const AnimatedSection = ({ children }) => {
   const MotionBox = motion.create(Box);
@@ -28,7 +29,6 @@ const AnimatedMain = ({ children, className = '' }) => {
 
   useEffect(() => {
     const handleEvent = (data) => {
-      console.log(data);
       setTriggered(true);
     };
 
@@ -132,16 +132,14 @@ const Animation = ({
   id,
   name = 'Rotate X',
   duration = 1,
-  waitForAnimation = '',
+  waitForAnimation = 'dataAndMediaLoaded',
 }) => {
+  const showAnimations = useShowAnimations();
+
   const [triggered, setTriggered] = useState(waitForAnimation ? false : true);
 
   useEffect(() => {
-    console.log('Animation ID:', id); // should be 'mainTitle'
-    console.log('Waiting for:', waitForAnimation); // should be 'headerLogo'
-
     const handleEvent = (data) => {
-      console.log(data);
       setTriggered(true);
     };
 
@@ -153,6 +151,8 @@ const Animation = ({
       };
     }
   }, []);
+
+  if (!showAnimations) return children;
 
   return (
     <motion.div

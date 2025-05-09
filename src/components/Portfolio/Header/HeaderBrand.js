@@ -1,9 +1,15 @@
+import { useLogo } from 'PortfolioHooks';
 import MediaWithLoadEvent from '../../Test/MediaWithLoadEvent';
-import { SiteIcon, Hacker } from './SiteIcon';
+import { SiteIcon, Logo } from './SiteIcon';
 
 import { Stack, Typography } from '@mui/material';
+import { usePortfolio } from 'PortfolioContext';
 
 const HeaderBrand = () => {
+  const portfolioData = usePortfolio();
+
+  const logo = useLogo();
+
   return (
     <Stack
       direction="row"
@@ -11,7 +17,7 @@ const HeaderBrand = () => {
       alignItems="center"
       className="cursor-pointer"
     >
-      <Hacker />
+      <Logo url={logo} />
 
       <Typography
         variant="h5"
