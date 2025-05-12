@@ -1,42 +1,46 @@
-import { Box, Typography, Container, Link, Stack } from "@mui/material";
-import { useTheme } from "@mui/material/styles";
-import Socials from "./About/Socials";
+import { Box, Typography, Container, Link, Stack } from '@mui/material';
+import { useTheme } from '@mui/material/styles';
+import Socials from './About/Socials';
+import { useInfo, useMainColor } from 'PortfolioHooks';
 
 const Footer = () => {
   const theme = useTheme();
 
-  const name = "Imanol Conde González"
+  const info = useInfo();
+
+  const color = useMainColor();
 
   return (
     <Box
       component="footer"
       sx={{
-        backgroundColor: "#111",
-        color: "#fff",
-        py: 3,
+        backgroundColor: '#111',
+        color: '#fff',
+        py: 1,
         px: 2,
         mt: 10,
       }}
     >
       <Container maxWidth="lg">
         <Stack
-          direction={{ xs: "column", sm: "row" }}
+          direction={{ xs: 'column', sm: 'row' }}
           justifyContent="space-between"
-          alignItems={"center"}
+          alignItems={'center'}
           spacing={2}
         >
           {/* Left Side */}
           <Box>
             <Typography
               variant="h6"
-              sx={{
-                fontFamily: theme.typography.fontFamily,
-                color: theme.palette.primary.main,
-                fontWeight: "bold",
-              }}
-            
+              sx={[
+                {
+                  fontFamily: theme.typography.fontFamily,
+                  fontWeight: 'bold',
+                },
+                color,
+              ]}
             >
-              {name}
+              {info?.name}
             </Typography>
           </Box>
 
@@ -45,7 +49,7 @@ const Footer = () => {
           </Typography>
 
           {/* Right Side - Links */}
-          
+
           <Stack direction="row" spacing={3} className="items-center">
             <Socials />
             {/* <Link

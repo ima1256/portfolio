@@ -1,34 +1,41 @@
-import { forwardRef, useEffect } from 'react';
+import { forwardRef } from 'react';
 import Socials from './Socials';
 import { Typography, Stack } from '@mui/material';
-import { Logo, InlineLogo } from '../Header/SiteIcon';
-import { useSelector } from 'react-redux';
-import { selectSkillLogo } from '../../../features/data/selectors';
+import { InlineLogo } from '../Header/SiteIcon';
+import { useSkills } from 'PortfolioHooks';
+import { Logo } from '../Header/SiteIcon';
 
 const TextSide = forwardRef(({ sx }, ref) => {
+  const skills = useSkills();
+
   const SkillLogo = ({ skill }) => {
-    const logoUrl = useSelector(selectSkillLogo(skill));
-    const loading = useSelector((state) => state.data.loading);
-    return loading || !logoUrl ? null : <InlineLogo url={logoUrl} />;
+    return <InlineLogo url={skills?.all[skill]?.logoUrl} />;
   };
 
   return (
     <Stack
       ref={ref}
-      sx={[{}, sx]}
+      sx={[
+        {
+          p: 3,
+          maxWidth: { xs: '100%', md: '800px' },
+          width: '100%',
+          margin: '0 auto',
+        },
+        sx,
+      ]}
       direction="column"
-      spacing={2} // Added spacing between text elements
-      alignItems="center" // Center text inside the stack
-      className="justify-center"
+      spacing={3}
+      alignItems="center"
+      justifyContent="center"
     >
       <Typography
         variant="body1"
         sx={{
-          fontSize: '1.5rem',
-          lineHeight: '1.8',
+          fontSize: '1.4em',
+          lineHeight: 1.8,
           color: 'text.secondary',
           textAlign: 'center',
-          maxWidth: '600px',
         }}
       >
         As a Full Stack Developer, I specialize in creating responsive,
@@ -41,7 +48,9 @@ const TextSide = forwardRef(({ sx }, ref) => {
         high-quality solutions.
       </Typography>
 
-      <Socials />
+      {/* <Logo url="/fullStackDev.png" height={400} /> */}
+
+      <Socials fontSize="30px" />
     </Stack>
   );
 });

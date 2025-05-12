@@ -34,11 +34,10 @@
       }
     },
     "logo": {
-      "url": "/hacker.svg"
+      "url": "/robot.png"
     },
     "sections": [
       { "name": "About", "active": true },
-
       { "name": "Projects", "active": true },
       { "name": "Skills", "active": true },
       { "name": "Live Coding", "active": true },
@@ -70,22 +69,26 @@
       {
         "date": "2017-2019",
         "name": "Aerospace Engineering",
-        "description": "Started studies in Aerospace Engineering at the University of Leon and developed an interest in programming."
+        "description": "Started studies in Aerospace Engineering at the University of Leon and developed an interest in programming.",
+        "image": "aerospace.jpg"
       },
       {
         "date": "2019-2024",
         "name": "Computer Science",
-        "description": "Studied Computer Science at UPV/EHU with a mention in Machine Learning."
+        "description": "Studied Computer Science at UPV/EHU with a mention in Machine Learning.",
+        "image": "computerScience.png"
       },
       {
         "date": "2023-02 to 2023-08",
-        "name": "Internship at ZITU",
-        "description": "Worked on project management software using Angular, .NET, and SQL Server."
+        "name": "Started Internship at ZITU",
+        "description": "Worked on project management software using Angular, .NET, and SQL Server.",
+        "image": "zitu.png"
       },
       {
         "date": "2023-10-16 to 2024-04-09",
         "name": "Junior Software Engineer at Geminys",
-        "description": "Built applications with Vue.js and Java Spring Boot, using MongoDB, CI/CD, AWS, and Git tools."
+        "description": "Built applications with Vue.js and Java Spring Boot, using MongoDB, CI/CD, AWS, and Git tools.",
+        "image": "geminys.webp"
       }
     ]
   },

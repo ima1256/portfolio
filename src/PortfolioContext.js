@@ -1,5 +1,12 @@
-import React, { createContext, useContext, useState, useEffect } from 'react';
+import React, {
+  createContext,
+  useContext,
+  useState,
+  useEffect,
+  Children,
+} from 'react';
 import { eventBus } from 'eventBus';
+import MediaWithLoadEvent from 'components/Test/MediaWithLoadEvent';
 
 export const PortfolioContext = createContext({
   portfolioData: null,
@@ -15,9 +22,16 @@ export const PortfolioProvider = ({ children }) => {
 
   const [loading, setLoading] = useState(true);
 
+  // const count = Children.toArray(children).filter(
+  //   (child) => child.type === MediaWithLoadEvent
+  // ).length;
+
+  const MEDIA_ELEMENT_NUMBER = 1;
+
   useEffect(() => {
     let isDataLoaded = false;
     let isMediaLoaded = false;
+    let mediaNumber = 0;
 
     const updateLoadingState = () => {
       if (isDataLoaded && isMediaLoaded) {
@@ -40,8 +54,10 @@ export const PortfolioProvider = ({ children }) => {
         updateLoadingState();
       });
 
-    const handler = (data) => {
-      isMediaLoaded = true;
+    const handler = ({ id, loadTimeMs }) => {
+      mediaNumber++;
+      isMediaLoaded = mediaNumber == MEDIA_ELEMENT_NUMBER ? true : false;
+      console.log(`Media with ID ${id} loaded in ${loadTimeMs}ms`);
       updateLoadingState();
     };
 

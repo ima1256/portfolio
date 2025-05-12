@@ -16,7 +16,6 @@ import MuteButton from './MuteButton';
 const VideoWithControls = ({
   showControls = true,
   video = 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4',
-  width = '60%',
   borderRadius = '0',
   showProgressLine = true,
   thumbnail = '/images/video-test.jpeg',
@@ -31,6 +30,17 @@ const VideoWithControls = ({
   const handleFirstInteracted = () => {
     setFirstInteracted(true);
   };
+
+  const [videoSize, setVideoSize] = useState({ width: 0, height: 0 });
+
+  useEffect(() => {
+    const observer = new ResizeObserver(([entry]) => {
+      const { width, height } = entry.contentRect;
+      setVideoSize({ width, height });
+    });
+    if (videoRef.current) observer.observe(videoRef.current);
+    return () => observer.disconnect();
+  }, []);
 
   useEffect(() => {
     const handleVideoPlaying = (playingId) => {
@@ -81,22 +91,21 @@ const VideoWithControls = ({
     videoRef.current.currentTime = 0; // Reset the video time to the beginning
   };
 
+  console.log(videoSize.height);
+
   return (
     <Stack
-      spacing={3}
+      spacing={5}
       sx={{
         display: 'flex',
         flexDirection: 'column',
-        alignItems: 'center',
         justifyContent: 'center',
       }}
     >
       <div
         style={{
           position: 'relative',
-          width,
-          aspectRatio: '16 / 9', // Keeps height stable before video loads
-          backgroundColor: 'black', // Prevents flashing
+          //aspectRatio: '16 / 9', // Keeps height stable before video loads
           borderRadius,
           overflow: 'hidden',
         }}
@@ -107,8 +116,8 @@ const VideoWithControls = ({
           <video
             ref={videoRef}
             style={{
-              width: '100%',
-              height: '100%',
+              width: 'auto',
+              height: '70vh',
               objectFit: 'cover',
             }}
             src={video}
@@ -123,11 +132,6 @@ const VideoWithControls = ({
           show={showControls && isHovered && firstInteracted}
           videoRef={videoRef}
         />
-        {/* 
-        <VideoProgressLine
-          show={showControls && isHovered && firstInteracted}
-          videoRef={videoRef}
-        /> */}
 
         <MuteButton
           show={showControls && isHovered && firstInteracted}
@@ -139,7 +143,8 @@ const VideoWithControls = ({
         sx={{
           display: showControls ? 'flex' : 'none',
           gap: 2,
-          justifyContent: 'center',
+          justifyContent: 'space-around',
+          width: '100%',
         }}
       >
         <PlayButton disabled={isPlaying} onClick={() => handlePlay()} />

@@ -15,7 +15,9 @@ import { useEffect } from 'react';
 import { AnimatedSection, AnimatedMain } from './extra/AnimatedSection';
 import Loading from '../Test/Loading';
 import { usePortfolio } from 'PortfolioContext';
-import { useSections } from 'PortfolioHooks';
+import { useHeaderHeight, useSections } from 'PortfolioHooks';
+import { PageBackground } from 'components/Test/PageBackground';
+import { Logo } from './Header/SiteIcon';
 
 const Portfolio = () => {
   const aboutRef = useRef(null);
@@ -56,8 +58,10 @@ const Portfolio = () => {
 
   const defaultSectionHeight = '100vh';
 
+  const headerHeight = useHeaderHeight();
+
   return (
-    <Stack className="gap-[30vh]">
+    <Stack className="gap-[10vh]">
       {loading && <Loading size={18} />}
       <Stack
         direction="column"
@@ -65,28 +69,23 @@ const Portfolio = () => {
           opacity: loading ? 0 : 1,
           transition: 'opacity 0.5s ease-in-out',
         }}
-        className="h-screen overflow-hidden"
+        className="relative"
       >
-        <Header className="h-[64px]" onTabChange={handleTabChange} />
+        <PageBackground sx={{ top: '-10px' }} />
+        <Header onTabChange={handleTabChange} />
 
-        {/* <div className="h-[64px] z-10 bg-red-500"></div> */}
-
-        {/* <AnimatedMain className="flex-grow">
-          <div className="h-full bg-green-500"></div>
-        </AnimatedMain> */}
-
-        {/* <AnimatedMain className="flex-grow"> */}
-        <About
-          className="h-full items-center justify-center flex-grow"
-          ref={aboutRef}
-        />
+        <div className="flex items-center justify-center relative">
+          <About ref={aboutRef} />
+        </div>
       </Stack>
 
-      {/* <AnimatedSection>
-        <TextSide sx={{ minHeight: defaultSectionHeight }} />
-      </AnimatedSection> */}
+      <AnimatedSection>
+        <Stack direction="row">
+          <TextSide />
+        </Stack>
+      </AnimatedSection>
 
-      {/* <Timeline sx={{ minHeight: defaultSectionHeight }} /> */}
+      <Timeline sx={{ minHeight: defaultSectionHeight }} />
       <AnimatedSection>
         <Projects
           sx={{ minHeight: defaultSectionHeight }}

@@ -19,6 +19,10 @@ import Projects from '../Portfolio/Projects';
 import { usePortfolio } from 'PortfolioContext';
 import Header from 'components/Portfolio/Header/Header';
 import { useProjects, useSections } from 'PortfolioHooks';
+import { PortfolioProvider } from 'PortfolioContext';
+import { PageBackground } from './PageBackground';
+import { BotIcon } from '../icons/Icons';
+import { gradientMap } from 'components/icons/gradients.tsx';
 
 const Test = () => {
   const portfolioData = usePortfolio();
@@ -29,21 +33,25 @@ const Test = () => {
 
   const sections = useSections();
 
+  // const getId = (type) => {
+  //   return type.name.toLowerCase();
+  // };
+
+  const [key, setKey] = useState('main');
+
   useEffect(() => {
-    const handler = (data) => {
-      setLoading(false);
-    };
+    //console.log(gradientMap.complexRainbow, gradientMap.main.static);
 
-    eventBus.on('mediaLoaded', handler);
+    const interval = setInterval(() => {
+      setKey(gradientMap.next());
+    }, 500);
 
-    return () => {
-      eventBus.off('mediaLoaded', handler); // Clean up
-    };
+    return () => clearInterval(interval);
   }, []);
 
   return (
     <Stack className="h-full justify-center items-center">
-      <Header />
+      <BotIcon gradientId={key} />
     </Stack>
   );
 };

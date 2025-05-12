@@ -6,9 +6,11 @@ import { Box } from '@mui/material';
 const MediaWithLoadEvent = ({ id, children }) => {
   const startRef = useRef(null);
   const hasEmitted = useRef(false);
+  const innerId = useRef(null);
 
   useEffect(() => {
     startRef.current = performance.now();
+    innerId.current = id + '-' + crypto.randomUUID();
     return () => {};
   }, []);
 
@@ -24,7 +26,7 @@ const MediaWithLoadEvent = ({ id, children }) => {
     hasEmitted.current = true;
 
     const loadTime = performance.now() - startRef.current;
-    eventBus.emit('mediaLoaded', { id, loadTimeMs: loadTime });
+    eventBus.emit('mediaLoaded', { id: innerId.current, loadTimeMs: loadTime });
   };
 
   const propsToInject = {};

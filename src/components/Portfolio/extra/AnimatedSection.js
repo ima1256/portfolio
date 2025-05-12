@@ -129,14 +129,19 @@ const TestAnimation = ({ children }) => {
 
 const Animation = ({
   children,
-  id,
+  id = 'myid',
   name = 'Rotate X',
   duration = 1,
-  waitForAnimation = 'dataAndMediaLoaded',
+  repeat = 0,
+  repeatDelay = 0,
+  waitForAnimation = '',
+  stop = false,
 }) => {
   const showAnimations = useShowAnimations();
 
-  const [triggered, setTriggered] = useState(waitForAnimation ? false : true);
+  const [triggered, setTriggered] = useState(
+    waitForAnimation || stop ? false : true
+  );
 
   useEffect(() => {
     const handleEvent = (data) => {
@@ -159,7 +164,12 @@ const Animation = ({
       key={id}
       initial={animations[name].initial}
       animate={triggered ? animations[name].animate : {}} // Dynamically change the animation
-      transition={{ ...animations[name].transition, duration }} // Use the transition from the animation
+      transition={{
+        ...animations[name].transition,
+        duration,
+        repeat,
+        repeatDelay,
+      }} // Use the transition from the animation
       onAnimationComplete={() => eventBus.emit(id, animations[name])}
     >
       {children}

@@ -12,7 +12,7 @@ import { motion } from 'framer-motion';
 import { XFlip } from '../extra/AnimatedSection';
 import { Animation } from '../extra/AnimatedSection';
 import { animationIds } from '../../Test/Animations';
-import { useSections } from 'PortfolioHooks';
+import { useHeaderHeight, useSections } from 'PortfolioHooks';
 
 const Header = ({ className = '', onTabChange = () => {} }) => {
   const sections = useSections();
@@ -32,25 +32,33 @@ const Header = ({ className = '', onTabChange = () => {} }) => {
     setDrawerOpen((prev) => !prev);
   };
 
+  const height = useHeaderHeight();
+
   return (
     <Stack
       className={`${className} w-full`}
       sx={{
-        boxShadow: '0 2px 8px rgba(0, 0, 0, 0.1)',
-        px: { xs: 2, md: 4 },
+        px: { xs: 2, md: 3 },
+        height,
+        fontSize: '2.3vh',
       }}
       direction="row"
       justifyContent="space-between"
       alignItems="center"
     >
       {/* Logo and Name */}
-      <Animation id={animationIds.headerLogo} name="Rotate X">
+      <Animation
+        id={animationIds.headerLogo}
+        waitForAnimation="dataAndMediaLoaded"
+        name="Rotate X"
+      >
         <HeaderBrand />
       </Animation>
 
       {/* Desktop Tabs */}
       <Box
         sx={{
+          px: 1,
           display: { xs: 'none', lg: 'flex' },
           justifyContent: 'center',
         }}
@@ -59,7 +67,12 @@ const Header = ({ className = '', onTabChange = () => {} }) => {
       </Box>
 
       {/* Desktop Book a Call button */}
-      <Box sx={{ display: { xs: 'none', lg: 'flex' }, alignItems: 'center' }}>
+      <Box
+        sx={{
+          display: { xs: 'none', lg: 'flex' },
+          alignItems: 'center',
+        }}
+      >
         <BookCallButton onClick={handleBookCallClick} />
       </Box>
 
@@ -67,7 +80,7 @@ const Header = ({ className = '', onTabChange = () => {} }) => {
         sx={{ display: { xs: 'flex', lg: 'none' } }}
         onClick={handleDrawerToggle}
       >
-        <MenuIcon />
+        <MenuIcon sx={{ fontSize: '6vh' }} />
       </IconButton>
 
       {/* Mobile Drawer */}

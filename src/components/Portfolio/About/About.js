@@ -10,10 +10,14 @@ const About = forwardRef(({ className = '' }, ref) => {
   const videoRef = useRef(null);
 
   return (
-    <Stack className={`${className}`} direction="column" spacing={3}>
+    <Stack
+      className={`${className}`}
+      direction="column"
+      sx={{ paddingX: 5, paddingTop: 7, position: 'relative' }}
+    >
       <Stack
         direction="column" // Responsive direction change
-        spacing={3}
+        spacing={7}
         className="items-center justify-center"
       >
         <Animation

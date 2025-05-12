@@ -4,25 +4,24 @@ const animations = {
   'Slide Down': {
     initial: { y: -200, opacity: 0 },
     animate: { y: 0, opacity: 1 },
-    transition: { type: 'spring', stiffness: 400, damping: 10, duration: 1 },
+    transition: { type: 'spring', stiffness: 400, damping: 10 },
   },
   'Fade In Only': {
     initial: { opacity: 0 },
     animate: { opacity: 1 },
     transition: {
-      duration: 1, // Customize as needed
       ease: 'easeInOut',
     },
   },
   'Slide from Left': {
     initial: { x: -300, opacity: 0 },
     animate: { x: 0, opacity: 1 },
-    transition: { type: 'spring', stiffness: 500, damping: 25, duration: 1 },
+    transition: { type: 'spring', stiffness: 500, damping: 25 },
   },
   'Scale Up': {
     initial: { scale: 0.5, opacity: 0 },
     animate: { scale: 1, opacity: 1 },
-    transition: { type: 'spring', stiffness: 400, damping: 25, duration: 1 },
+    transition: { type: 'spring', stiffness: 400, damping: 25 },
   },
   Bounce: {
     initial: { y: -50, opacity: 0 },
@@ -32,28 +31,22 @@ const animations = {
       stiffness: 400,
       damping: 10,
       mass: 1.5,
-      duration: 1.5,
     },
-  },
-  'Fade In with Delay': {
-    initial: { opacity: 0 },
-    animate: { opacity: 1 },
-    transition: { duration: 2, delay: 0.5 },
   },
   'Rotate and Scale': {
     initial: { rotate: 0, scale: 1, opacity: 0 },
     animate: { rotate: 180, scale: 1.2, opacity: 1 },
-    transition: { type: 'spring', stiffness: 300, damping: 20, duration: 1.5 },
+    transition: { type: 'spring', stiffness: 300, damping: 20 },
   },
   'Slide from Right': {
     initial: { x: 300, opacity: 0 },
     animate: { x: 0, opacity: 1 },
-    transition: { type: 'spring', stiffness: 300, damping: 30, duration: 1.5 },
+    transition: { type: 'spring', stiffness: 300, damping: 30 },
   },
   'Fade and Zoom': {
     initial: { scale: 0.5, opacity: 0 },
     animate: { scale: 1, opacity: 1 },
-    transition: { type: 'spring', stiffness: 400, damping: 15, duration: 1.5 },
+    transition: { type: 'spring', stiffness: 400, damping: 15 },
   },
   Shake: {
     initial: { x: 0 },
@@ -61,13 +54,12 @@ const animations = {
     transition: {
       type: 'tween', // ✅ Changed from 'spring'
       ease: 'easeInOut',
-      duration: 0.6,
     },
   },
   'Scale and Rotate': {
     initial: { scale: 0.5, rotate: 0, opacity: 0 },
     animate: { scale: 1, rotate: 90, opacity: 1 },
-    transition: { type: 'spring', stiffness: 300, damping: 25, duration: 1.5 },
+    transition: { type: 'spring', stiffness: 300, damping: 25 },
   },
   'Bounce Y': {
     initial: { y: 0, opacity: 0 },
@@ -75,15 +67,12 @@ const animations = {
     transition: {
       type: 'tween', // ✅ Changed from 'spring'
       ease: 'easeInOut',
-      duration: 1.5,
-      repeat: Infinity,
-      repeatType: 'loop',
     },
   },
   'Rotate X': {
     initial: { rotateX: 0 },
     animate: { rotateX: 360 },
-    transition: { duration: 1, ease: 'easeInOut', repeat: 0 },
+    transition: { ease: 'easeInOut' },
   },
   'Fall and Bounce': {
     initial: { y: '-100vh', opacity: 0 },

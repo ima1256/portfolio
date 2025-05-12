@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Tabs, Tab } from '@mui/material';
-import { useSections } from 'PortfolioHooks';
+import { useHeaderHeight, useSections } from 'PortfolioHooks';
 
 const NavTabs = ({ onTabChange }) => {
   const sections = useSections();
@@ -11,6 +11,8 @@ const NavTabs = ({ onTabChange }) => {
     setValue(newValue);
     onTabChange(sections[newValue].name);
   };
+
+  const height = useHeaderHeight();
 
   return (
     <Tabs
@@ -24,7 +26,7 @@ const NavTabs = ({ onTabChange }) => {
         <Tab
           key={index}
           label={section.name}
-          sx={{ fontSize: '16px', fontWeight: 'bold', minHeight: '64px' }}
+          sx={{ fontSize: 'inherit', fontWeight: 'bold', minHeight: height }}
         />
       ))}
     </Tabs>

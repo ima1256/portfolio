@@ -7,6 +7,7 @@ import {
   ListItemText,
   ListItemButton,
   Tab,
+  Stack,
 } from '@mui/material';
 import BookCallButton from './BookCallButton';
 import { useSections } from 'PortfolioHooks';
@@ -46,26 +47,39 @@ const MobileDrawer = ({
       open={open}
       onClose={onClose}
     >
-      <Box>
+      <Stack direction="column" className="h-full">
         {/* Section List */}
-        <List>
+        <List sx={{ padding: 0 }}>
           {sections.map((section, index) => (
             <ListItemButton
               key={section.name}
               onClick={() => {
                 handleItemClick('tab', index); // Handle tab change
               }}
+              sx={{
+                paddingY: 4,
+              }}
             >
-              <ListItemText primary={section.name} />
+              <ListItemText
+                primary={section.name}
+                primaryTypographyProps={{
+                  sx: {
+                    fontWeight: 'bold',
+                    color: 'text.secondary',
+                    textAlign: 'center',
+                    fontSize: '1.5rem',
+                  },
+                }}
+              />
             </ListItemButton>
           ))}
         </List>
 
         {/* Book a Call Button */}
-        <div className="flex grow-1 justify-center items-center">
+        <div className="flex flex-grow justify-center items-center">
           <BookCallButton onClick={() => handleItemClick('bookCall')} />
         </div>
-      </Box>
+      </Stack>
     </Drawer>
   );
 };
