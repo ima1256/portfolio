@@ -32,7 +32,7 @@ function App() {
         {/* <DataLoader /> */}
         <div className="App h-full">
           <Routes>
-            <Route path="/" element={<Home />} />
+            <Route path="/" element={<Portfolio />} />
             <Route path="/test" element={<Test />} />
             <Route path="/portfolio" element={<Portfolio />} />
             <Route path="*" element={<Navigate to="/" />} />
