@@ -6,7 +6,7 @@ import { animationIds } from '../../Test/Animations';
 import { useTheme } from '@emotion/react';
 import MainTitle from './MainTitle';
 
-const About = forwardRef(({ className = '' }, ref) => {
+const About = ({ className = '' }) => {
   const videoRef = useRef(null);
 
   return (
@@ -17,7 +17,7 @@ const About = forwardRef(({ className = '' }, ref) => {
     >
       <Stack
         direction="column" // Responsive direction change
-        spacing={7}
+        spacing={6}
         className="items-center justify-center"
       >
         <Animation
@@ -38,6 +38,6 @@ const About = forwardRef(({ className = '' }, ref) => {
       </Stack>
     </Stack>
   );
-});
+};
 
 export default About;

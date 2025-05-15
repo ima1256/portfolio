@@ -24,8 +24,12 @@ import { eventBus } from './eventBus';
 import { useEffect, useState } from 'react';
 import Loading from './components/Test/Loading';
 import { Stack } from '@mui/material';
+import { useJobApplicationsIds } from 'PortfolioHooks';
+import CompanyIntro from 'components/CoverLetter/CompanyIntro';
 
 function App() {
+  const jobApplicationsIds = useJobApplicationsIds();
+
   return (
     <ThemeProvider theme={theme}>
       <Router>
@@ -33,7 +37,15 @@ function App() {
         <div className="App h-full">
           <Routes>
             <Route path="/" element={<Portfolio />} />
+            {/* <Route path="/" element={<Home />} /> */}
             <Route path="/test" element={<Test />} />
+            {jobApplicationsIds.map((jobApplicationId) => (
+              <Route
+                key={jobApplicationId}
+                path={`/${jobApplicationId}`}
+                element={<CompanyIntro applicationId={jobApplicationId} />}
+              />
+            ))}
             <Route path="/portfolio" element={<Portfolio />} />
             <Route path="*" element={<Navigate to="/" />} />
           </Routes>

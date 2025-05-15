@@ -1,5 +1,5 @@
 import { Box, Stack, Typography } from '@mui/material';
-import { forwardRef } from 'react';
+import { forwardRef, useRef } from 'react';
 import { useSpring, animated } from '@react-spring/web';
 import { useInView } from 'react-intersection-observer';
 import {
@@ -9,9 +9,13 @@ import {
   useMyJourney,
 } from 'PortfolioHooks';
 
-import { PageBackground } from 'components/Test/PageBackground';
+import {
+  PageBackground,
+  LeftSideMiddle,
+  RightSideMiddle,
+} from 'components/Test/PageBackground';
 
-const Timeline = forwardRef(({ sx }, ref) => {
+const Timeline = ({ sx = {} }) => {
   const background = useMainBackground('-51deg');
 
   const color = useMainColor('-51deg');
@@ -20,15 +24,18 @@ const Timeline = forwardRef(({ sx }, ref) => {
 
   const myJourney = useMyJourney();
 
+  const ref = useRef(null);
+
   return (
     <Box
       ref={ref}
       sx={[{}, sx]}
       className="flex items-center justify-center relative"
     >
-      <PageBackground />
+      {/* <LeftSideMiddle />
+      <RightSideMiddle /> */}
       <Stack direction="column" spacing={5}>
-        <Typography
+        {/* <Typography
           variant="h3"
           sx={[
             {
@@ -40,7 +47,7 @@ const Timeline = forwardRef(({ sx }, ref) => {
           ]}
         >
           MY YOURNEY
-        </Typography>
+        </Typography> */}
 
         <Box position="relative" className="w-full">
           {/* Vertical Line */}
@@ -152,6 +159,6 @@ const Timeline = forwardRef(({ sx }, ref) => {
       </Stack>
     </Box>
   );
-});
+};
 
 export default Timeline;

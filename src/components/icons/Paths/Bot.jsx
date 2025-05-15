@@ -1,5 +1,5 @@
 // icons/botPaths.jsx
-const BotPaths = (
+const Bot = (
   <>
     <path
       fillRule="evenodd"
@@ -11,7 +11,7 @@ const BotPaths = (
 
 const ViewBox = '0 0 24 24';
 
-export { BotPaths, ViewBox };
+export { Bot, ViewBox };
 
 {
   /* <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">

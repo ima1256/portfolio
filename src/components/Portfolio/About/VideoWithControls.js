@@ -8,21 +8,24 @@ import { useEffect } from 'react';
 import SliderLine from '../../Test/SliderLine';
 
 import { Stack } from '@mui/material';
-
 import PlayButton from './PlayButton';
 import StopButton from './StopButton';
 import MuteButton from './MuteButton';
 
 const VideoWithControls = ({
-  showControls = true,
-  video = 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4',
+  showControls = false,
+  video = '',
   borderRadius = '0',
   showProgressLine = true,
-  thumbnail = '/images/video-test.jpeg',
+  videoHeight = 'auto',
+  aspectRatio = '16/9',
+  thumbnail = '',
+  autoPlay = true,
+  loop = false,
 }) => {
-  const [isMuted, setIsMuted] = useState(false); // State to manage the muted/unmuted status
+  const [isMuted, setIsMuted] = useState(true); // State to manage the muted/unmuted status
 
-  const [isPlaying, setIsPlaying] = useState(false);
+  const [isPlaying, setIsPlaying] = useState(true);
   const videoRef = useRef(null);
   const idRef = useRef(uuidv4()); // Unique ID per instance
   const [firstInteracted, setFirstInteracted] = useState(false);
@@ -91,8 +94,6 @@ const VideoWithControls = ({
     videoRef.current.currentTime = 0; // Reset the video time to the beginning
   };
 
-  console.log(videoSize.height);
-
   return (
     <Stack
       spacing={5}
@@ -105,7 +106,7 @@ const VideoWithControls = ({
       <div
         style={{
           position: 'relative',
-          //aspectRatio: '16 / 9', // Keeps height stable before video loads
+          aspectRatio, // Keeps height stable before video loads
           borderRadius,
           overflow: 'hidden',
         }}
@@ -117,27 +118,31 @@ const VideoWithControls = ({
             ref={videoRef}
             style={{
               width: 'auto',
-              height: '70vh',
+              height: videoHeight,
+              maxHeight: '100%',
+              width: '100%',
               objectFit: 'cover',
             }}
             src={video}
-            // poster={thumbnail}
+            poster={thumbnail}
             muted={isMuted}
             onEnded={handleVideoEnd}
-            controls={false}
+            controls={video ? true : false}
+            autoPlay
+            loop
           />
         </MediaWithLoadEvent>
 
-        <SliderLine
-          show={showControls && isHovered && firstInteracted}
+        {/* <SliderLine
+          show={showControls && !firstInteracted}
           videoRef={videoRef}
-        />
+        /> */}
 
-        <MuteButton
-          show={showControls && isHovered && firstInteracted}
+        {/* <MuteButton
+          show={isHovered && firstInteracted}
           isMuted={isMuted}
           onClick={toggleMute}
-        />
+        /> */}
       </div>
       <Box
         sx={{

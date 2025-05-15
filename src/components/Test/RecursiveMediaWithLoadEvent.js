@@ -28,7 +28,7 @@ const MediaWithLoadEvent = ({ id, children }) => {
     if (mediaCountRef.current > 0 && loadedCount === mediaCountRef.current) {
       const loadTime = performance.now() - startRef.current;
       eventBus.emit('mediaLoaded', { id, loadTimeMs: loadTime });
-      console.log(`[${id}] all media loaded in ${loadTime.toFixed(2)} ms`);
+      // console.log(`[${id}] all media loaded in ${loadTime.toFixed(2)} ms`);
     }
   }, [loadedCount, id]);
 

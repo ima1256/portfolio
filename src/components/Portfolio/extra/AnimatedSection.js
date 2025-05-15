@@ -6,6 +6,7 @@ import { animations } from '../../Test/Animations';
 import { eventBus } from '../../../eventBus';
 import { useState, useEffect } from 'react';
 import { useShowAnimations } from 'PortfolioHooks';
+import { Undo } from '@mui/icons-material';
 
 const AnimatedSection = ({ children }) => {
   const MotionBox = motion.create(Box);
@@ -58,7 +59,6 @@ const AnimatedTitle = ({ children, className = '' }) => {
 
   useEffect(() => {
     const handleEvent = (data) => {
-      console.log(data);
       setTriggered(true);
     };
 
@@ -133,15 +133,27 @@ const Animation = ({
   name = 'Rotate X',
   duration = 1,
   repeat = 0,
+  delay = 0,
   repeatDelay = 0,
   waitForAnimation = '',
   stop = false,
+  unDo = false,
+  className = '',
+  onClick = () => {},
 }) => {
   const showAnimations = useShowAnimations();
 
   const [triggered, setTriggered] = useState(
     waitForAnimation || stop ? false : true
   );
+
+  const unDoAnimation = () => {
+    setTriggered(false);
+  };
+
+  useEffect(() => {
+    unDoAnimation();
+  }, [Undo]);
 
   useEffect(() => {
     const handleEvent = (data) => {
@@ -155,22 +167,28 @@ const Animation = ({
         eventBus.off(waitForAnimation, handleEvent);
       };
     }
-  }, []);
+  }, [waitForAnimation]);
 
   if (!showAnimations) return children;
 
   return (
     <motion.div
       key={id}
+      className={className}
+      onClick={() => {}}
       initial={animations[name].initial}
       animate={triggered ? animations[name].animate : {}} // Dynamically change the animation
       transition={{
         ...animations[name].transition,
         duration,
         repeat,
+        delay,
         repeatDelay,
       }} // Use the transition from the animation
-      onAnimationComplete={() => eventBus.emit(id, animations[name])}
+      onAnimationComplete={() => {
+        eventBus.emit(id, animations[name]);
+        //
+      }}
     >
       {children}
     </motion.div>

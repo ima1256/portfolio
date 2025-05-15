@@ -11,8 +11,6 @@ const LoadingWrapper = ({ children }) => {
 
   useEffect(() => {
     const handler = (data) => {
-      console.log('Video loaded:', data);
-
       setTimeout(() => {
         setLoading(false);
       }, 2000);

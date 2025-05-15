@@ -1,11 +1,11 @@
 // BotIcon.jsx
 import Icon from '../Icon.tsx';
-import { BotPaths, ViewBox } from './BotPaths';
+import { FullStack, ViewBox } from '../Paths/FullStack.jsx';
 
 const BotIcon = (props) => {
   return (
     <Icon {...props} viewBox={ViewBox}>
-      {BotPaths}
+      {FullStack}
     </Icon>
   );
 };

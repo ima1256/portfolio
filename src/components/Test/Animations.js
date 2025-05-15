@@ -13,6 +13,14 @@ const animations = {
       ease: 'easeInOut',
     },
   },
+  'Fade Out Only': {
+    initial: { opacity: 1 },
+    animate: { opacity: 0 },
+    transition: {
+      ease: 'easeInOut',
+    },
+  },
+
   'Slide from Left': {
     initial: { x: -300, opacity: 0 },
     animate: { x: 0, opacity: 1 },
@@ -24,7 +32,7 @@ const animations = {
     transition: { type: 'spring', stiffness: 400, damping: 25 },
   },
   Bounce: {
-    initial: { y: -50, opacity: 0 },
+    initial: { y: -200, opacity: 0 },
     animate: { y: 0, opacity: 1 },
     transition: {
       type: 'spring',

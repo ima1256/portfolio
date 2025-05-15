@@ -1,4 +1,16 @@
 {
+  "jobApplications": {
+    "c320869b-10cd-4969-83b9-26ca15459c66": {
+      "company": "geminys",
+      "letter": "/text/geminys.txt",
+      "title": "Thanks for your time",
+      "video": "https://ima1256portfolio.s3.us-east-1.amazonaws.com/testVideo.mp4",
+      "cv": ""
+    }
+  },
+  "placeholder": {
+    "video": "https://ima1256portfolio.s3.us-east-1.amazonaws.com/testVideo.mp4"
+  },
   "calendlyLink": "https://calendly.com/imanolcondeimanol/20min",
   "socials": {
     "github": {
@@ -29,7 +41,7 @@
   "page": {
     "main": {
       "video": {
-        "url": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
+        "url": "https://ima1256portfolio.s3.us-east-1.amazonaws.com/testVideo.mp4",
         "thumbnail": ""
       }
     },
@@ -38,10 +50,11 @@
     },
     "sections": [
       { "name": "About", "active": true },
-      { "name": "Projects", "active": true },
-      { "name": "Skills", "active": true },
-      { "name": "Live Coding", "active": true },
-      { "name": "Contact", "active": true }
+      { "name": "Journey", "active": false },
+      { "name": "Projects", "active": false },
+      { "name": "Skills", "active": false },
+      { "name": "Live Coding", "active": false },
+      { "name": "Contact", "active": false }
     ]
   },
   "info": {
@@ -96,26 +109,11 @@
     {
       "id": 1,
       "name": "Project1",
-      "description": "Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging across all continents except Antarctica",
+      "description": "Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging across all continents except Antarctica.Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging across all continents except Antarctica",
       "thumbnail": "https://i.imgur.com/389fePD.jpg",
-      "video": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
-      "demo": "https://nextjs.org/"
-    },
-    {
-      "id": 2,
-      "name": "project2",
-      "description": "Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging across all continents except Antarctica",
-      "thumbnail": "https://i.imgur.com/389fePD.jpg",
-      "video": "https://www.youtube.com/embed/gwF9hKUCPCo?si=g4iZDphHLmHHDCfE",
-      "demo": "https://play.tailwindcss.com/"
-    },
-    {
-      "id": 3,
-      "name": "project3",
-      "description": "Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging across all continents except Antarctica",
-      "thumbnail": "https://i.imgur.com/389fePD.jpg",
-      "video": "https://www.youtube.com/embed/gwF9hKUCPCo?si=g4iZDphHLmHHDCfE",
-      "demo": "https://reactshowcase1234.netlify.app"
+      "video": "https://ima1256portfolio.s3.us-east-1.amazonaws.com/testVideo.mp4",
+      "demo": "https://nextjs.org/",
+      "github": "https://github.com/ima1256/portfolio"
     }
   ],
   "skills": {

@@ -12,56 +12,56 @@ const Footer = () => {
 
   return (
     <Box
-      component="footer"
       sx={{
         backgroundColor: '#111',
         color: '#fff',
         py: 1,
-        px: 2,
-        mt: 10,
+        px: 5,
+        width: '100%',
       }}
     >
-      <Container maxWidth="lg">
-        <Stack
-          direction={{ xs: 'column', sm: 'row' }}
-          justifyContent="space-between"
-          alignItems={'center'}
-          spacing={2}
-        >
-          {/* Left Side */}
-          <Box>
-            <Typography
-              variant="h6"
-              sx={[
-                {
-                  fontFamily: theme.typography.fontFamily,
-                  fontWeight: 'bold',
-                },
-                color,
-              ]}
-            >
-              {info?.name}
-            </Typography>
-          </Box>
-
-          <Typography variant="body2" color="gray">
-            © {new Date().getFullYear()} | All rights reserved.
+      <Stack
+        direction={{ xs: 'column', sm: 'row' }}
+        justifyContent="space-between"
+        alignItems={'center'}
+        spacing={2}
+      >
+        {/* Left Side */}
+        <Box>
+          <Typography
+            variant="h6"
+            sx={[
+              {
+                fontFamily: theme.typography.fontFamily,
+                fontWeight: 'bold',
+                //                 background: color,
+                // WebkitBackgroundClip: 'text',
+                // WebkitTextFillColor: 'transparent', // Primary theme color
+              },
+              color,
+            ]}
+          >
+            {info?.name}
           </Typography>
+        </Box>
 
-          {/* Right Side - Links */}
+        <Typography variant="body2" color="gray">
+          © {new Date().getFullYear()} | All rights reserved.
+        </Typography>
 
-          <Stack direction="row" spacing={3} className="items-center">
-            <Socials />
-            {/* <Link
+        {/* Right Side - Links */}
+
+        <Stack direction="row" spacing={3} className="items-center">
+          <Socials />
+          {/* <Link
               href="mailto:your.email@example.com"
               underline="hover"
               sx={{ color: theme.palette.secondary.main }}
             >
               Email
             </Link> */}
-          </Stack>
         </Stack>
-      </Container>
+      </Stack>
     </Box>
   );
 };

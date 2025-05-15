@@ -2,7 +2,7 @@ import { useTheme } from '@emotion/react';
 import { Typography } from '@mui/material';
 import { useFuturisticTypography, useMainColor } from 'PortfolioHooks';
 
-const MainTitle = ({ sx }) => {
+const MainTitle = ({ sx, text = 'Building The Future!' }) => {
   const theme = useTheme();
 
   const color = useMainColor();
@@ -34,7 +34,7 @@ const MainTitle = ({ sx }) => {
         sx, // Allow additional customizations via props
       ]}
     >
-      Building the future!
+      {text}
     </Typography>
   );
 };

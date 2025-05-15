@@ -1,6 +1,7 @@
 import React from 'react';
 import { Skeleton, Box } from '@mui/material';
 import { keyframes } from '@emotion/react'; // Required for custom keyframes with MUI's `sx`
+import { useMainBackground } from 'PortfolioHooks';
 
 // Define a custom keyframe that includes scale and opacity
 const scalePulse = keyframes`
@@ -18,14 +19,16 @@ const scalePulse = keyframes`
   }
 `;
 
-const Loading = ({ size = 18 }) => {
+const Loading = ({ size = 18, position = 'absolute' }) => {
+  const background = useMainBackground();
+
   return (
     <Box
       sx={{
-        position: 'absolute',
+        position,
         top: '50%',
         left: '50%',
-        transform: 'translate(-50%, -50%)',
+        transform: position === 'absolute' ? 'translate(-50%, -50%)' : '',
       }}
       display="flex"
       gap={2}
@@ -39,7 +42,7 @@ const Loading = ({ size = 18 }) => {
           height={size}
           sx={{
             animation: `${scalePulse} 1.3s ease-in-out ${dot * 0.2}s infinite`,
-            bgcolor: 'primary.main',
+            bgcolor: background,
             opacity: 1,
             boxShadow: '0 0 10px rgba(0, 0, 0, 0.2)',
           }}

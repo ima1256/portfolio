@@ -18,10 +18,27 @@ code {
     monospace;
 }
 
+.spotlight {
+  z-index: 60
+}
 
 @font-face {
   font-family: 'Siegra';
   src: url('/public/fonts/Siegra.ttf') format('truetype'); /* Adjust the path if needed */
   font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Comic Relief';
+  src: url('/public/fonts/ComicRelief-Regular.ttf') format('truetype'); /* Adjust the path if needed */
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Comic Relief';
+  src: url('/public/fonts/ComicRelief-Bold.ttf') format('truetype'); /* Adjust the path if needed */
+  font-weight: bold;
   font-style: normal;
 }

@@ -1,24 +1,17 @@
 import { Stack, IconButton } from '@mui/material';
 import { GitHub, LinkedIn, Facebook } from '@mui/icons-material';
 import { Logo } from '../Header/SiteIcon';
+import { useSocials } from 'PortfolioHooks';
 
-const Socials = ({ fontSize = '24px' }) => {
-  const socialLinks = {
-    github: {
-      url: 'https://github.com/ima1256',
-    },
-    linkedin: {
-      url: 'https://www.linkedin.com/in/imanolcondegonzalez',
-    },
-    facebook: {
-      url: 'https://www.facebook.com/imanol.conde.37',
-    },
-  };
-
-  const email = 'imanolcondeimanol@gmail.com';
+const Socials = ({ fontSize = '24px', sx = {}, className = '' }) => {
+  const socialLinks = useSocials();
 
   return (
-    <Stack direction="row">
+    <Stack
+      sx={(theme) => ({ ...(typeof sx === 'function' ? sx(theme) : sx) })}
+      className={className}
+      direction="row"
+    >
       <IconButton
         color="inherit"
         onClick={() => window.open(socialLinks.github.url, '_blank')}
@@ -37,10 +30,6 @@ const Socials = ({ fontSize = '24px' }) => {
       >
         <Facebook sx={{ color: '#1877F2', fontSize }} />
       </IconButton>
-
-      {/* <IconButton component="a" href={`mailto:${email}`} >
-          <Logo height={24} url="/tech/gmail.svg" />
-        </IconButton> */}
     </Stack>
   );
 };

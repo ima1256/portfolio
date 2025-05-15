@@ -17,16 +17,10 @@ export const usePortfolio = () => {
   return useContext(PortfolioContext);
 };
 
-export const PortfolioProvider = ({ children }) => {
+export const PortfolioProvider = ({ children, MEDIA_ELEMENT_NUMBER = 2 }) => {
   const [portfolioData, setPortfolioData] = useState(null);
 
   const [loading, setLoading] = useState(true);
-
-  // const count = Children.toArray(children).filter(
-  //   (child) => child.type === MediaWithLoadEvent
-  // ).length;
-
-  const MEDIA_ELEMENT_NUMBER = 1;
 
   useEffect(() => {
     let isDataLoaded = false;
@@ -57,7 +51,7 @@ export const PortfolioProvider = ({ children }) => {
     const handler = ({ id, loadTimeMs }) => {
       mediaNumber++;
       isMediaLoaded = mediaNumber == MEDIA_ELEMENT_NUMBER ? true : false;
-      console.log(`Media with ID ${id} loaded in ${loadTimeMs}ms`);
+
       updateLoadingState();
     };
 
