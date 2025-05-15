@@ -49,7 +49,7 @@
       "url": "/robot.png"
     },
     "sections": [
-      { "name": "About", "active": true },
+      { "name": "About", "active": false },
       { "name": "Journey", "active": false },
       { "name": "Projects", "active": false },
       { "name": "Skills", "active": false },

@@ -13,10 +13,9 @@ import BookCallButton from './BookCallButton';
 import { useSections } from 'PortfolioHooks';
 
 const MobileDrawer = ({
-  onTabChange,
-  open,
-  onClose,
-  onBookCallClick,
+  open = false,
+  onClose = () => {},
+  onBookCallClick = () => {},
   onDrawerToggle,
   width,
 }) => {
@@ -32,13 +31,13 @@ const MobileDrawer = ({
   useEffect(() => {
     if (!open && pendingAction) {
       if (pendingAction.type === 'tab' && pendingAction.index !== null) {
-        onTabChange(sections[pendingAction.index].name);
+        //onTabChange(sections[pendingAction.index].name);
       } else if (pendingAction.type === 'bookCall') {
         onBookCallClick();
       }
       setPendingAction(null); // Reset state after the action
     }
-  }, [open, pendingAction, sections, onTabChange, onBookCallClick]);
+  }, [open, pendingAction, sections, onBookCallClick]);
 
   return (
     <Drawer

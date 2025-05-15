@@ -86,7 +86,6 @@ const Header = ({ className = '', onTabChange = () => {} }) => {
       {/* Mobile Drawer */}
       <MobileDrawer
         width={200}
-        onTabChange={onTabChange}
         open={drawerOpen}
         onClose={handleDrawerClose}
         onBookCallClick={() => {

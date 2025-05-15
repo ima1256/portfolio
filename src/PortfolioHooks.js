@@ -1,6 +1,7 @@
 import { useContext } from 'react';
 import { PortfolioContext } from 'PortfolioContext';
 import { useTheme } from '@emotion/react';
+import { eventBus } from 'eventBus';
 
 export const usePortfolioData = () =>
   useContext(PortfolioContext).portfolioData;
@@ -16,6 +17,10 @@ export const useSections = () => {
   return (
     portfolioData?.page?.sections?.filter((section) => section.active) ?? []
   ); // Returns an empty array if undefined
+};
+
+export const GoToSection = (section) => {
+  eventBus.emit(`GoTo-${section.name}`);
 };
 
 export const useSkills = () => {
